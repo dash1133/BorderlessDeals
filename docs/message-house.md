@@ -134,7 +134,7 @@ Support line, used once in the hero:
 - **Claim:** buyers come to your anonymous teaser; nobody cold-emails on your behalf.
 - **Eyebrow:** Reach
 - **H2:** Buyers abroad find your teaser where they already search.
-- **Body:** Your anonymous teaser can be found on Borderless Deals, in Claude and ChatGPT, and on Google. Buyers browse free and join to sign an NDA or contact your broker. Their AI agent checks fit with yours first. No one cold-emails buyers on your behalf.
+- **Body:** At launch, your anonymous teaser can be found on Borderless Deals, in Claude and ChatGPT, and on Google. Buyers browse free and join to sign an NDA or contact your broker. Their AI agent checks fit with yours first. No one cold-emails buyers on your behalf.
 - **Visual, `ai-assistant`:**
   1. A buyer types a request into Claude or ChatGPT.
   2. Anonymous teaser cards appear by 2s, showing a size band and region only, tagged *Illustrative*.
@@ -155,7 +155,7 @@ Support line, used once in the hero:
 - **Eyebrow:** Deals that hold
 - **H2:** Find what would break a cross-border deal before the buyer does.
 - **Body:** Many broken deals fail on things that were knowable earlier. At every stage from the mandate to the SPA, an AI agent tests the seller's and the buyer's stories for contradictions and gaps, and re-checks the corridor's rules, such as foreign-investment screening and sanctions. A specialist is called in for anything deeper, and the broker decides.
-- **Proof:** In Axial's review of 65 signed LOIs that broke in 2024, non-QoE diligence findings (21.5%), QoE EBITDA discrepancies (15.4%) and business underperformance (12.3%) caused about half the failures. Deals sat in exclusivity for an average of 58 to 203 days, depending on industry, before they broke.
+- **Proof:** In Axial's review of 65 executed LOIs that broke in 2024, non-QoE diligence findings (21.5%), QoE EBITDA discrepancies (15.4%) and business underperformance (12.3%) caused about half the failures. Deals sat in exclusivity for an average of 58 to 203 days, depending on industry, before they broke.
 - **Visual, `stage-gates`:**
   - Seven gates: Mandate · Collateral · Anonymous teaser · NDA · LOI · Due diligence · SPA & closing.
   - At the mandate: "Contradiction: stated EBITDA ≠ tax return" → specialist called in → "Fixed".
