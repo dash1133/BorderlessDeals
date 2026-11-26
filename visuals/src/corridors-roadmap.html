@@ -1,54 +1,39 @@
 <!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
 <style>
-.map{position:absolute;left:0;top:60px;width:800px;height:400px;animation:fadeIn .6s .1s both}
+/* S3 corridors: US-India arc launching; Japan and Europe as dashed candidates. Map at top:20px. */
+.map{position:absolute;left:0;top:20px;width:800px;height:400px;animation:fadeIn .5s .05s both}
 svg.ov{position:absolute;left:0;top:0;width:800px;height:500px;overflow:visible}
 .arc{fill:none;stroke-linecap:round}
-.arc.main{stroke:var(--saffron);stroke-width:3.5;stroke-dasharray:520;stroke-dashoffset:520;animation:draw 1.3s cubic-bezier(.4,0,.2,1) .8s forwards}
-.arc.glow{stroke:rgba(245,158,11,.2);stroke-width:14;stroke-dasharray:520;stroke-dashoffset:520;animation:draw 1.3s cubic-bezier(.4,0,.2,1) .8s forwards,breathe 1.6s ease-in-out 2.2s infinite alternate}
-@keyframes breathe{from{stroke:rgba(245,158,11,.12)}to{stroke:rgba(245,158,11,.32)}}
-.arc.next{stroke:var(--blue);stroke-width:2;stroke-dasharray:5 6;opacity:0;animation:fadeIn .7s var(--d) both,march 1s linear var(--d) infinite}
-@keyframes march{to{stroke-dashoffset:-22}}
-.pin{position:absolute;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1px var(--line);animation:pop .4s var(--d) both,pulse 1.6s ease-out var(--d) infinite}
-.pin.us{background:var(--saffron);left:216px;top:174px;--d:.4s}
-.pin.in{background:var(--saffron);left:564px;top:236px;--d:1.9s}
-.pin.jp{background:#fff;border-color:var(--blue);left:710px;top:187px;--d:3.4s}
-.pin.eu{background:#fff;border-color:var(--blue);left:422px;top:143px;--d:3.9s}
-.tag{position:absolute;padding:6px 9px;font-size:10.5px;display:flex;align-items:center;gap:6px}
-.tag b{font-size:11px}
-.live{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px var(--green-50)}
-.tl{position:absolute;left:28px;top:384px;width:744px;padding:12px 14px}
-.tl .hd{display:flex;justify-content:space-between;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
-.tracks{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:8px}
-.hz .rail{height:8px;border-radius:5px;background:#EDF1F9;overflow:hidden}
-.hz .fill{height:100%;transform-origin:left;transform:scaleX(0);animation:grow 1.1s cubic-bezier(.4,0,.2,1) var(--d) forwards;background:var(--c)}
-.hz .t{font-size:11.5px;font-weight:700;margin-top:6px;display:flex;gap:6px;align-items:center}
-.hz .s{font-size:10px;color:var(--ink-3);margin-top:2px}
+.arc.main{stroke:var(--saffron);stroke-width:4.5;stroke-dasharray:560;stroke-dashoffset:560;animation:draw 1.1s cubic-bezier(.4,0,.2,1) .5s forwards}
+.arc.glow{stroke:rgba(245,158,11,.2);stroke-width:16;stroke-dasharray:560;stroke-dashoffset:560;animation:draw 1.1s cubic-bezier(.4,0,.2,1) .5s forwards,breathe 1.6s ease-in-out 1.8s infinite alternate}
+@keyframes breathe{from{stroke:rgba(245,158,11,.12)}to{stroke:rgba(245,158,11,.34)}}
+.arc.next{stroke:var(--blue);stroke-width:2.5;stroke-dasharray:6 7;opacity:0;animation:fadeIn .6s var(--d) both,march 1s linear var(--d) infinite}
+@keyframes march{to{stroke-dashoffset:-26}}
+.pin{position:absolute;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1px var(--line);animation:pop .4s var(--d) both,pulse 1.6s ease-out var(--d) infinite}
+.pin.us{background:var(--saffron);left:216px;top:134px;--d:.2s}
+.pin.in{background:var(--saffron);left:564px;top:196px;--d:1.2s}
+.pin.jp{background:#fff;border-color:var(--blue);left:710px;top:147px;--d:2.2s;animation:pop .4s var(--d) both}
+.pin.eu{background:#fff;border-color:var(--blue);left:422px;top:103px;--d:2.5s;animation:pop .4s var(--d) both}
+.tag{position:absolute;padding:8px 12px;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.live{width:10px;height:10px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px var(--green-50)}
+.cand{font-size:16px;font-weight:700;color:var(--blue)}
+.who{position:absolute;left:400px;top:392px;transform:translateX(-50%);padding:14px 20px;display:grid;gap:6px;text-align:center;white-space:nowrap}
+.who .k{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
 </style></head>
-<body data-ms="9500" style="--T:9.5s"><div class="stage">
-  <div class="cap in" style="--d:.2s"><div class="eyebrow">Corridors &amp; roadmap</div>
-    <h2>Corridor by corridor. Starting with <em>US ↔ India</em>.</h2></div>
+<body data-ms="9000" style="--T:9s"><div class="stage">
   <img class="map" src="worldmap.svg">
   <svg class="ov" viewBox="0 0 800 500">
-    <path class="arc glow" d="M216 174 Q390 20 564 236"/>
-    <path class="arc main" d="M216 174 Q390 20 564 236"/>
-    <path class="arc next" style="--d:3.2s" d="M216 174 Q463 10 710 187"/>
-    <path class="arc next" style="--d:3.7s" d="M216 174 Q330 160 422 143"/>
+    <path class="arc glow" d="M216 134 Q390 -20 564 196"/>
+    <path class="arc main" d="M216 134 Q390 -20 564 196"/>
+    <path class="arc next" style="--d:2.1s" d="M564 196 Q660 120 710 147"/>
+    <path class="arc next" style="--d:2.4s" d="M216 134 Q320 60 422 103"/>
   </svg>
   <div class="pin us"></div><div class="pin in"></div><div class="pin jp"></div><div class="pin eu"></div>
 
-  <div class="card tag pop" style="left:470px;top:252px;--d:2.2s"><span class="live"></span><b>Live · US ↔ India</b><span class="muted">Horizon 1</span></div>
-  <div class="card tag pop" style="left:640px;top:208px;--d:3.6s"><b style="color:var(--blue)">Next</b><span class="muted">Japan · candidate</span></div>
-  <div class="card tag pop" style="left:282px;top:196px;--d:4.1s"><b style="color:var(--blue)">Next</b><span class="muted">Transatlantic · candidate</span></div>
+  <div class="card tag pop" style="left:440px;top:222px;--d:1.4s"><span class="live"></span><span class="t22">Launching · US ↔ India</span></div>
+  <div class="card tag pop" style="left:648px;top:178px;--d:2.4s"><span class="cand">Candidate · Japan</span></div>
+  <div class="card tag pop" style="left:300px;top:150px;--d:2.7s"><span class="cand">Candidate · Europe</span></div>
 
-  <div class="card tl in" style="--d:4.6s">
-    <div class="hd"><span>Product roadmap · three horizons</span><span>Broker-centric from day one</span></div>
-    <div class="tracks">
-      <div class="hz" style="--c:var(--saffron);--d:5s"><div class="rail"><div class="fill"></div></div>
-        <div class="t">H1 · Broker-led <span class="chip g" style="font-size:9.5px;padding:1px 6px">Now</span></div><div class="s">US–India only · brokers list sellers</div></div>
-      <div class="hz" style="--c:var(--blue);--d:6s"><div class="rail"><div class="fill"></div></div>
-        <div class="t">H2 · Expanded corridors</div><div class="s">More corridors · verified direct sellers</div></div>
-      <div class="hz" style="--c:var(--ink);--d:7s"><div class="rail"><div class="fill"></div></div>
-        <div class="t">H3 · Global coverage</div><div class="s">Corridors worldwide · end-to-end execution</div></div>
-    </div>
-  </div>
+  <div class="card who in" style="--d:3s"><div class="k">Buyers in India</div>
+    <div class="t18">Corporate development teams · PE funds · buy-side brokers</div></div>
 </div></body></html>

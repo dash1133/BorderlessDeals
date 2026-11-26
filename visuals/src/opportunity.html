@@ -1,0 +1,39 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+/* S2 opportunity: US sellers (supply) on the left, foreign buyers (demand) on the right, joined by an arc. Values fade in, no count-up. */
+.grp{position:absolute;top:58px;width:300px;padding:20px 22px;display:grid;gap:18px}
+.grp.sell{left:28px;top:150px}
+.grp.buy{left:472px}
+.hd{display:flex;align-items:center;gap:10px}
+.hd .lbl{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.stat{display:grid;gap:4px}
+.n{font-size:46px;font-weight:800;letter-spacing:-.02em;line-height:1}
+.sell .n{color:#B45309}.buy .n{color:var(--blue)}
+.src{font-size:15px;color:var(--ink-3);font-weight:600}
+.sep{height:1px;background:var(--line)}
+svg.ov{position:absolute;inset:0;width:800px;height:500px}
+.arc{fill:none;stroke:var(--saffron);stroke-width:4;stroke-linecap:round;stroke-dasharray:300;stroke-dashoffset:300;animation:draw 1s cubic-bezier(.4,0,.2,1) 1.6s forwards}
+.dot{position:absolute;left:0;top:0;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--saffron);box-shadow:0 0 0 5px rgba(245,158,11,.25);
+  offset-path:path('M330 250 Q400 150 470 210');offset-rotate:0deg;opacity:0;animation:ride 1.6s ease-in-out 2.6s infinite}
+@keyframes ride{0%{offset-distance:0%;opacity:0}15%{opacity:1}85%{opacity:1}100%{offset-distance:100%;opacity:0}}
+.head{position:absolute;left:452px;top:197px;width:0;height:0;border-left:16px solid var(--saffron);border-top:9px solid transparent;border-bottom:9px solid transparent;transform:rotate(35deg);opacity:0;animation:fadeIn .3s 2.5s both}
+</style></head>
+<body data-ms="9000" style="--T:9s"><div class="stage">
+  <svg class="ov" viewBox="0 0 800 500"><path class="arc" d="M330 250 Q400 150 470 210"/></svg>
+  <div class="head"></div><div class="dot"></div>
+
+  <div class="card grp sell in" style="--d:.3s">
+    <div class="hd"><div class="agent seller sm">S</div><span class="lbl" style="color:#B45309">US sellers</span></div>
+    <div class="stat fi" style="--d:.7s"><div class="n">1M+</div>
+      <div class="t18">viable US small businesses need buyers by 2035</div><div class="src">McKinsey</div></div>
+  </div>
+
+  <div class="card grp buy in" style="--d:1s">
+    <div class="hd"><div class="agent buyer sm">B</div><span class="lbl" style="color:var(--blue)">Foreign buyers</span></div>
+    <div class="stat fi" style="--d:1.4s"><div class="n">$500B+</div>
+      <div class="t18">US companies bought by non-US buyers, 2025</div><div class="src">Ropes &amp; Gray</div></div>
+    <div class="sep"></div>
+    <div class="stat fi" style="--d:1.9s"><div class="n">$13.7B</div>
+      <div class="t18">India outbound M&amp;A, 2025</div><div class="src">EY India</div></div>
+  </div>
+</div></body></html>

@@ -38,22 +38,24 @@ LAYOUT = """<!doctype html>
 JOIN = """<section id="join"><div class="wrap"><div class="cta-band">
   <div><div class="eyebrow" style="color:#9DB5FF">{eyebrow}</div><h2>{headline}</h2>
     <p>{sub}</p>
-    <ul class="points" style="margin-top:18px"><li style="color:#C9D3EA">Free to join. No percentage of your deal, ever.</li>
-    <li style="color:#C9D3EA">You decide what is shown, to whom, and when.</li>
-    <li style="color:#C9D3EA">Agents recommend; people decide.</li></ul></div>
+    <ul class="points" style="margin-top:18px"><li style="color:#C9D3EA">You keep your mandate, your client and your fee.</li>
+    <li style="color:#C9D3EA">You or your broker decide what is shown, to whom, and when.</li>
+    <li style="color:#C9D3EA">AI agents do the legwork. People make every decision.</li></ul>
+    <div class="join-visual"><img src="assets/gif/mandate-in.gif" loading="lazy" width="800" height="500" alt="One mandate goes in; an anonymous teaser and a list of likely buyer types in India come out."></div></div>
   <form class="join" action="#" method="post">
     <label>Full name<input name="name" autocomplete="name" required></label>
+    <label>Work email<input name="email" type="email" autocomplete="email" required></label>
     <label>Firm<input name="firm" autocomplete="organization" required></label>
     <label>I am a<select name="role">{options}</select></label>
     <button class="btn btn-primary btn-lg" type="submit">{button}</button>
-    <div class="thanks">Thank you. We'll be in touch about the founding cohort.</div>
-    <div class="fine">Three fields. No credit card. No spam.</div>
+    <div class="thanks">Thank you. We'll be in touch about your first mandate.</div>
+    <div class="fine">Four fields. No credit card.</div>
   </form></div></div></section>"""
-ROLES = ["Sell-side broker", "Buy-side broker", "Strategic buyer / corp dev", "Private equity", "Service provider", "Other"]
+ROLES = ["Broker", "Business owner", "Buyer", "Private equity", "Service provider"]
 def join_html(attrs):
-    a = dict(eyebrow="Founding cohort · US–India corridor", headline="Take your next mandate global.",
-             sub="Join the founding brokers, buyers and providers building the first agent-run corridor between the US and India.",
-             button="Request my founding seat", role="Sell-side broker")
+    a = dict(eyebrow="Founding brokers · US–India corridor", headline="Sell to the world. Start with one mandate.",
+             sub="Send one mandate. Your AI agent drafts the anonymous teaser and a list of likely buyers in India. Free for founding brokers in the US–India corridor.",
+             button="Send my mandate", role="Broker")
     a.update(attrs)
     a["options"] = "".join(f"<option{' selected' if r == a['role'] else ''}>{r}</option>" for r in ROLES)
     return JOIN.format(**a)
