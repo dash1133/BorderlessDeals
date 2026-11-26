@@ -1,0 +1,65 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+/* S3 global reach, your control: visibility switch Domestic only -> Selected countries -> Worldwide;
+   arcs from Ohio are cumulative and end on Worldwide (held). Map at top:20px. */
+.map{position:absolute;left:0;top:20px;width:800px;height:400px;animation:fadeIn .5s .05s both}
+svg.ov{position:absolute;left:0;top:0;width:800px;height:500px;overflow:visible}
+.arc{fill:none;stroke-linecap:round;stroke-width:3;stroke-dasharray:600;stroke-dashoffset:600;animation:draw .9s cubic-bezier(.4,0,.2,1) var(--d) forwards}
+.arc.dom{stroke:var(--saffron)}
+.arc.sel{stroke:var(--blue)}
+.arc.ww{stroke:var(--blue);opacity:.85}
+.pin{position:absolute;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1px var(--line);background:var(--blue);animation:pop .35s var(--d) both}
+.pin.us{width:20px;height:20px;margin:-10px 0 0 -10px;background:var(--saffron);animation:pop .4s .2s both,pulse 1.6s ease-out .2s infinite}
+.pin.dom{background:var(--saffron)}
+/* visibility switch */
+.sw{position:absolute;left:24px;top:330px;padding:12px 14px}
+.sw .k{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px}
+.seg{position:relative;display:grid;grid-template-columns:repeat(3,auto);background:#EEF1F7;border-radius:10px;padding:4px}
+.seg span{position:relative;z-index:1;font-size:16px;font-weight:700;padding:8px 14px;color:var(--ink-2);white-space:nowrap;text-align:center}
+.knob{position:absolute;top:4px;bottom:4px;border-radius:8px;background:var(--blue);box-shadow:0 2px 6px rgba(31,79,224,.3);
+  animation:knob var(--T) linear both}
+/* segment widths: measured offsets set below via left/width keyframes */
+@keyframes knob{
+  0%,31%{left:4px;width:var(--w1)}
+  34%,55%{left:calc(4px + var(--w1));width:var(--w2)}
+  58%,100%{left:calc(4px + var(--w1) + var(--w2));width:var(--w3)}}
+.s1{animation:c1 var(--T) linear both}.s2{animation:c2 var(--T) linear both}.s3{animation:c3 var(--T) linear both}
+@keyframes c1{0%,31%{color:#fff}34%,100%{color:var(--ink-2)}}
+@keyframes c2{0%,31%{color:var(--ink-2)}34%,55%{color:#fff}58%,100%{color:var(--ink-2)}}
+@keyframes c3{0%,55%{color:var(--ink-2)}58%,100%{color:#fff}}
+.who{position:absolute;right:24px;top:418px;padding:12px 18px;display:grid;gap:4px;white-space:nowrap}
+.who .k{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+</style></head>
+<body data-ms="10000" style="--T:10s"><div class="stage">
+  <img class="map" src="worldmap.svg">
+  <svg class="ov" viewBox="0 0 800 500">
+    <!-- domestic only (0.6s) -->
+    <path class="arc dom" style="--d:.6s" d="M216 134 Q200 115 184 160"/>
+    <path class="arc dom" style="--d:.7s" d="M216 134 Q175 100 133 143"/>
+    <!-- selected countries (3.4s) -->
+    <path class="arc sel" style="--d:3.4s" d="M216 134 Q320 20 422 103"/>
+    <path class="arc sel" style="--d:3.5s" d="M216 134 Q463 -80 710 147"/>
+    <!-- worldwide (5.8s) -->
+    <path class="arc ww" style="--d:5.8s" d="M216 134 Q370 0 522 177"/>
+    <path class="arc ww" style="--d:5.9s" d="M216 134 Q230 240 296 316"/>
+    <path class="arc ww" style="--d:6.0s" d="M216 134 Q430 60 631 245"/>
+    <path class="arc ww" style="--d:6.1s" d="M216 134 Q480 120 736 345"/>
+  </svg>
+  <div class="pin us" style="left:216px;top:134px"></div>
+  <div class="pin dom" style="left:184px;top:160px;--d:1.3s"></div>
+  <div class="pin dom" style="left:133px;top:143px;--d:1.4s"></div>
+  <div class="pin" style="left:422px;top:103px;--d:4.1s"></div>
+  <div class="pin" style="left:710px;top:147px;--d:4.2s"></div>
+  <div class="pin" style="left:522px;top:177px;--d:6.5s"></div>
+  <div class="pin" style="left:296px;top:316px;--d:6.6s"></div>
+  <div class="pin" style="left:631px;top:245px;--d:6.7s"></div>
+  <div class="pin" style="left:736px;top:345px;--d:6.8s"></div>
+
+  <div class="card sw in" style="--d:.3s">
+    <div class="k">Who can see this mandate</div>
+    <div class="seg" style="--w1:136px;--w2:182px;--w3:126px"><div class="knob"></div>
+      <span class="s1" style="width:136px">Domestic only</span><span class="s2" style="width:182px">Selected countries</span><span class="s3" style="width:126px">Worldwide</span></div>
+  </div>
+  <div class="card who in" style="--d:1s"><div class="k">Buyers</div>
+    <div class="t18">Corporate development teams · PE funds · buy-side brokers</div></div>
+</div></body></html>

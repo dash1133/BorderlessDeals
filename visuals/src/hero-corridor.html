@@ -1,25 +1,29 @@
 <!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
 <style>
-/* S1 hero: US company -> anonymous teaser -> buyer in India; AI agents confirm fit; KYC + broker approval; NDA. */
+/* S1 hero: US company's anonymous teaser fans out to buyers on several continents; one buyer abroad responds;
+   AI agents confirm fit; KYC + broker approval; NDA. Map at top:40px. */
 .map{position:absolute;left:0;top:40px;width:800px;height:400px;animation:fadeIn .5s .05s both}
 svg.ov{position:absolute;left:0;top:0;width:800px;height:500px;overflow:visible}
 .arc{fill:none;stroke-linecap:round}
-.arc.main{stroke:var(--saffron);stroke-width:4;stroke-dasharray:560;stroke-dashoffset:560;animation:draw 1.1s cubic-bezier(.4,0,.2,1) .5s forwards}
-.arc.glow{stroke:rgba(245,158,11,.2);stroke-width:16;stroke-dasharray:560;stroke-dashoffset:560;animation:draw 1.1s cubic-bezier(.4,0,.2,1) .5s forwards}
+.arc.fan{stroke:var(--blue);stroke-width:2.5;stroke-dasharray:6 7;opacity:0;animation:fadeIn .5s var(--d) both}
+.arc.main{stroke:var(--saffron);stroke-width:4;stroke-dasharray:520;stroke-dashoffset:520;animation:draw .9s cubic-bezier(.4,0,.2,1) 1.7s forwards}
+.arc.glow{stroke:rgba(245,158,11,.2);stroke-width:16;stroke-dasharray:520;stroke-dashoffset:520;animation:draw .9s cubic-bezier(.4,0,.2,1) 1.7s forwards}
 .pin{position:absolute;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1px var(--line);animation:pop .4s var(--d) both,pulse 1.6s ease-out var(--d) infinite}
 .pin.us{background:var(--saffron);left:216px;top:154px;--d:.2s}
-.pin.in{background:var(--blue);left:564px;top:216px;--d:.9s}
+.pin.b{background:var(--blue)}
 .party{position:absolute;width:262px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start}
 .party .agent{flex:none}
 .party.seller{left:20px;top:214px}
-.party.buyer{left:500px;top:262px;width:280px}
-.teaser{position:absolute;left:0;top:0;offset-path:path('M216 154 Q390 0 564 216');offset-rotate:0deg;
-  padding:7px 12px;font-size:16px;font-weight:700;white-space:nowrap;opacity:0;animation:travel 1.6s cubic-bezier(.5,0,.3,1) 1.1s both}
-@keyframes travel{0%{offset-distance:0%;opacity:0}10%{opacity:1}90%{opacity:1}100%{offset-distance:100%;opacity:0}}
-.meet{position:absolute;left:390px;top:92px;transform:translate(-50%,-50%);display:flex;align-items:center;gap:4px}
+.party.buyer{left:470px;top:262px;width:250px}
+.tz{position:absolute;left:0;top:0;offset-rotate:0deg;opacity:0;animation:travel 1.3s cubic-bezier(.5,0,.3,1) var(--d) both}
+.tz.mini{width:34px;height:24px;padding:5px;display:grid;gap:3px;align-content:center}
+.tz.mini i{display:block;height:4px;border-radius:2px;background:#D5DDEE}
+.tz.lbl{padding:6px 11px;font-size:16px;font-weight:700;white-space:nowrap}
+@keyframes travel{0%{offset-distance:0%;opacity:0}10%{opacity:1}88%{opacity:1}100%{offset-distance:100%;opacity:0}}
+.meet{position:absolute;left:370px;top:98px;transform:translate(-50%,-50%);display:flex;align-items:center;gap:4px}
 .meet .agent{animation:pop .4s var(--d) both}
-.ctr{position:absolute;left:400px;transform:translateX(-50%)}
-.ctr .chip{animation:pop .4s var(--d) both}
+.chiprow{position:absolute;left:0;right:0;top:12px;display:flex;justify-content:center;gap:14px}
+.chiprow .chip{animation:pop .4s var(--d) both}
 .dealw{position:absolute;left:0;right:0;top:408px;display:flex;justify-content:center}
 .deal{padding:14px 20px;display:flex;align-items:center;gap:12px;white-space:nowrap}
 .deal .tick{width:28px;height:28px;font-size:16px}
@@ -27,21 +31,32 @@ svg.ov{position:absolute;left:0;top:0;width:800px;height:500px;overflow:visible}
 <body data-ms="9000" style="--T:9s"><div class="stage">
   <img class="map" src="worldmap.svg">
   <svg class="ov" viewBox="0 0 800 500">
-    <path class="arc glow" d="M216 154 Q390 0 564 216"/>
-    <path class="arc main" d="M216 154 Q390 0 564 216"/>
+    <path class="arc fan" style="--d:.5s" d="M216 154 Q320 40 422 123"/>
+    <path class="arc fan" style="--d:.55s" d="M216 154 Q370 20 522 197"/>
+    <path class="arc fan" style="--d:.6s" d="M216 154 Q463 -60 710 167"/>
+    <path class="arc fan" style="--d:.65s" d="M216 154 Q230 260 296 336"/>
+    <path class="arc glow" d="M216 154 Q370 20 522 197"/>
+    <path class="arc main" d="M216 154 Q370 20 522 197"/>
   </svg>
-  <div class="pin us"></div><div class="pin in"></div>
+  <div class="pin us"></div>
+  <div class="pin b" style="left:422px;top:123px;--d:.6s"></div>
+  <div class="pin b" style="left:522px;top:197px;--d:.65s"></div>
+  <div class="pin b" style="left:710px;top:167px;--d:.7s"></div>
+  <div class="pin b" style="left:296px;top:336px;--d:.75s"></div>
+
+  <!-- teasers fan out to every region -->
+  <div class="card tz mini" style="offset-path:path('M216 154 Q320 40 422 123');--d:.7s"><i></i><i style="width:70%"></i></div>
+  <div class="card tz mini" style="offset-path:path('M216 154 Q463 -60 710 167');--d:.8s"><i></i><i style="width:70%"></i></div>
+  <div class="card tz mini" style="offset-path:path('M216 154 Q230 260 296 336');--d:.9s"><i></i><i style="width:70%"></i></div>
+  <div class="card tz lbl" style="offset-path:path('M216 154 Q370 20 522 197');--d:.75s">Anonymous teaser</div>
 
   <div class="card party seller in" style="--d:.3s"><div class="agent seller">S</div>
     <div><div class="t22">US company</div><div class="t16 muted">Ohio · sell-side broker</div></div></div>
-  <div class="card party buyer in" style="--d:1s"><div class="agent buyer">B</div>
-    <div><div class="t22">Buyer in India</div><div class="t16 muted">Mumbai · buy-side broker</div></div></div>
-
-  <div class="card teaser">Anonymous teaser</div>
+  <div class="card party buyer in" style="--d:1.9s"><div class="agent buyer">B</div>
+    <div><div class="t22">Buyer abroad</div><div class="t16 muted">via buy-side broker</div></div></div>
 
   <div class="meet"><div class="agent ai" style="--d:2.6s">AI</div><div class="agent ai" style="--d:2.7s">AI</div></div>
-  <div class="ctr" style="top:20px"><span class="chip g lg" style="--d:2.8s">✓ AI agents confirm fit</span></div>
-  <div class="ctr" style="top:150px"><span class="chip t lg" style="--d:3.6s">✓ KYC passed · broker approves</span></div>
+  <div class="chiprow"><span class="chip g lg" style="--d:2.8s">✓ AI agents confirm fit</span><span class="chip t lg" style="--d:3.6s">✓ KYC passed · broker approves</span></div>
 
   <div class="dealw"><div class="card deal pop" style="--d:4.4s"><span class="tick">✓</span><span class="t22">NDA signed · names revealed</span></div></div>
 </div></body></html>
