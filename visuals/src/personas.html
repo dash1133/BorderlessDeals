@@ -1,0 +1,85 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+svg.ov{position:absolute;left:0;top:0;width:800px;height:500px}
+.ln{stroke:#CBD5EA;stroke-width:2;stroke-dasharray:4 6;animation:flow 1s linear infinite,fadeIn .5s .9s both}
+@keyframes flow{to{stroke-dashoffset:-20}}
+.lh{stroke-width:3;stroke-linecap:round;opacity:0;animation:hlL 1.3s var(--d) both}
+@keyframes hlL{0%{opacity:0}12%{opacity:1}88%{opacity:1}100%{opacity:0}}
+.node{position:absolute;width:120px;margin-left:-60px;margin-top:-24px;display:flex;flex-direction:column;align-items:center;gap:6px;animation:pop .4s var(--p) both}
+.node .in2{display:flex;flex-direction:column;align-items:center;gap:5px;animation:hl 1.3s var(--d) both}
+@keyframes hl{0%{opacity:.5;transform:scale(1)}12%{opacity:1;transform:scale(1.18)}88%{opacity:1;transform:scale(1.18)}100%{opacity:.5;transform:scale(1)}}
+.node .agent{width:46px;height:46px;font-size:13px}
+.node .nm{font-size:11px;font-weight:700;background:#fff;border:1px solid var(--line);border-radius:7px;padding:2px 7px;white-space:nowrap}
+.hub{position:absolute;left:230px;top:290px;width:130px;height:104px;margin:-52px 0 0 -65px;border-radius:18px;background:var(--ink);color:#fff;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;box-shadow:0 10px 30px rgba(14,26,51,.25);animation:pop .5s .5s both}
+.hub .logo{color:#fff}.hub .logo b{color:#8FB0FF}
+.hub .t{font-weight:800;font-size:15px}
+.hub .s{font-size:9.5px;color:#AFC0E6;letter-spacing:.04em}
+.hub::before{content:"";position:absolute;inset:-6px;border-radius:22px;border:2px solid rgba(31,79,224,.35);animation:pulse 1.6s ease-out infinite}
+.job{position:absolute;left:470px;top:104px;width:304px;height:360px;padding:0}
+.blk{position:absolute;inset:0;padding:18px 18px;opacity:0;animation:show 1.3s var(--d) both}
+@keyframes show{0%{opacity:0;transform:translateY(8px)}12%{opacity:1;transform:none}88%{opacity:1;transform:none}100%{opacity:0;transform:translateY(-6px)}}
+.blk .hd{display:flex;align-items:center;gap:12px}
+.blk .hd .agent{width:42px;height:42px}
+.blk h3{font-size:17px;font-weight:800;letter-spacing:-.01em}
+.blk .sub{font-size:10.5px;color:var(--ink-3);margin-top:2px}
+.blk .r{margin-top:14px;padding-top:12px;border-top:1px solid #F0F3FA}
+.blk .k{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:700}
+.blk .v{font-size:12.5px;margin-top:4px;line-height:1.4}
+.blk .r.agentjob .v{font-weight:600;color:var(--ink)}
+.blk .r.agentjob{background:var(--blue-50);border:0;border-radius:10px;padding:10px 12px;margin-top:14px}
+.job .ph{position:absolute;inset:0;display:grid;place-items:center;color:var(--ink-3);font-size:12px;animation:fadeIn .3s .6s both,fadeOut .2s 1s forwards}
+</style></head>
+<body data-ms="9400" style="--T:9.4s"><div class="stage">
+  <div class="cap in" style="--d:.15s"><div class="eyebrow">Six seats at the table</div>
+    <h2>One platform. <em>Every side</em> of the deal.</h2></div>
+
+  <svg class="ov" viewBox="0 0 800 500">
+    <line class="ln" x1="230" y1="150" x2="230" y2="290"/><line class="ln" x1="356" y1="220" x2="230" y2="290"/>
+    <line class="ln" x1="356" y1="360" x2="230" y2="290"/><line class="ln" x1="230" y1="430" x2="230" y2="290"/>
+    <line class="ln" x1="104" y1="360" x2="230" y2="290"/><line class="ln" x1="104" y1="220" x2="230" y2="290"/>
+    <line class="lh" style="--d:1s;stroke:var(--teal)" x1="230" y1="150" x2="230" y2="290"/>
+    <line class="lh" style="--d:2.3s;stroke:var(--teal)" x1="356" y1="220" x2="230" y2="290"/>
+    <line class="lh" style="--d:3.6s;stroke:var(--blue)" x1="356" y1="360" x2="230" y2="290"/>
+    <line class="lh" style="--d:4.9s;stroke:var(--ink)" x1="230" y1="430" x2="230" y2="290"/>
+    <line class="lh" style="--d:6.2s;stroke:var(--violet)" x1="104" y1="360" x2="230" y2="290"/>
+    <line class="lh" style="--d:7.5s;stroke:var(--saffron)" x1="104" y1="220" x2="230" y2="290"/>
+  </svg>
+
+  <div class="hub"><span class="logo"><span class="mk"></span>BORDERLESS <b>DEALS</b></span><span class="t">Deal room</span><span class="s">LOI · DILIGENCE · SPA · CLOSE</span></div>
+
+  <div class="node" style="left:230px;top:150px;--p:.55s;--d:1s"><div class="in2"><span class="agent broker">SB</span><span class="nm">Sell-side broker</span></div></div>
+  <div class="node" style="left:356px;top:220px;--p:.62s;--d:2.3s"><div class="in2"><span class="agent broker">BB</span><span class="nm">Buy-side broker</span></div></div>
+  <div class="node" style="left:356px;top:360px;--p:.69s;--d:3.6s"><div class="in2"><span class="agent buyer">B</span><span class="nm">Strategic buyer</span></div></div>
+  <div class="node" style="left:230px;top:420px;--p:.76s;--d:4.9s"><div class="in2"><span class="agent pe">PE</span><span class="nm">Private equity</span></div></div>
+  <div class="node" style="left:104px;top:360px;--p:.83s;--d:6.2s"><div class="in2"><span class="agent provider">P</span><span class="nm">Service provider</span></div></div>
+  <div class="node" style="left:104px;top:220px;--p:.9s;--d:7.5s"><div class="in2"><span class="agent seller">S</span><span class="nm">Seller · via broker</span></div></div>
+
+  <div class="card job in" style="--d:.5s">
+    <div class="ph">Every participant has an agent</div>
+    <div class="blk" style="--d:1s"><div class="hd"><span class="agent broker">SB</span><div><h3>Sell-side broker</h3><div class="sub">The engine of the platform</div></div></div>
+      <div class="r"><div class="k">Lists</div><div class="v">A portfolio of companies for sale, each with its own anonymous teaser</div></div>
+      <div class="r"><div class="k">Gets</div><div class="v">Global buyer reach without a global network</div></div>
+      <div class="r agentjob"><div class="k">Agent's job</div><div class="v">Markets each mandate, qualifies buyers, manages NDAs and data release</div></div></div>
+    <div class="blk" style="--d:2.3s"><div class="hd"><span class="agent broker">BB</span><div><h3>Buy-side broker</h3><div class="sub">Serves a book of similar buyers</div></div></div>
+      <div class="r"><div class="k">Lists</div><div class="v">A set of requirements, or the targets a client wants</div></div>
+      <div class="r"><div class="k">Gets</div><div class="v">Reach into sell-side mandates in other countries</div></div>
+      <div class="r agentjob"><div class="k">Agent's job</div><div class="v">Runs every client's thesis across all listings, many mandates at once</div></div></div>
+    <div class="blk" style="--d:3.6s"><div class="hd"><span class="agent buyer">B</span><div><h3>Strategic buyer</h3><div class="sub">Corp dev with a clear thesis</div></div></div>
+      <div class="r"><div class="k">Lists</div><div class="v">Acquisition requirements: sector, geography, size, structure</div></div>
+      <div class="r"><div class="k">Gets</div><div class="v">Global target flow, shortlists and a path to close</div></div>
+      <div class="r agentjob"><div class="k">Agent's job</div><div class="v">Interprets the thesis, screens targets, runs first-round Q&amp;A, tracks the pipeline</div></div></div>
+    <div class="blk" style="--d:4.9s"><div class="hd"><span class="agent pe">PE</span><div><h3>Private equity</h3><div class="sub">Funds, independent sponsors, search funds</div></div></div>
+      <div class="r"><div class="k">Lists</div><div class="v">Investment criteria and add-on theses for portfolio companies</div></div>
+      <div class="r"><div class="k">Gets</div><div class="v">Cross-border deal flow, add-ons abroad, better exits</div></div>
+      <div class="r agentjob"><div class="k">Agent's job</div><div class="v">Sources continuously against the fund's and each portfolio company's criteria</div></div></div>
+    <div class="blk" style="--d:6.2s"><div class="hd"><span class="agent provider">P</span><div><h3>Service provider</h3><div class="sub">Legal · tax · valuation · financing · accounting</div></div></div>
+      <div class="r"><div class="k">Lists</div><div class="v">Specialty, jurisdictions, credentials and pricing</div></div>
+      <div class="r"><div class="k">Gets</div><div class="v">Requirements to bid on, plus direct inbound work</div></div>
+      <div class="r agentjob"><div class="k">Agent's job</div><div class="v">Answers requests for proposal, scopes work, reports progress into the deal room</div></div></div>
+    <div class="blk" style="--d:7.5s"><div class="hd"><span class="agent seller">S</span><div><h3>Seller</h3><div class="sub">Owner or founder · via a broker at launch</div></div></div>
+      <div class="r"><div class="k">Lists</div><div class="v">Itself, through a sanitized anonymous teaser</div></div>
+      <div class="r"><div class="k">Gets</div><div class="v">Qualified buyers worldwide and a run process to close</div></div>
+      <div class="r agentjob"><div class="k">Agent's job</div><div class="v">Builds the company wiki, controls disclosure, qualifies inbound buyers</div></div></div>
+  </div>
+</div></body></html>

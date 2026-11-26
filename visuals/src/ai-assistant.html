@@ -1,0 +1,75 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+.win.main{left:48px;top:82px;width:704px;height:398px;animation:fadeUp .5s .3s both}
+.win .bar .ai{display:flex;align-items:center;gap:7px;font-weight:700;font-size:11.5px}
+.aiav{width:18px;height:18px;border-radius:50%;background:conic-gradient(from 0deg,#8B9BC2,#C9D3EA,#8B9BC2);display:grid;place-items:center;color:#fff;font-size:8px;font-weight:800}
+.note{margin-left:auto;font-size:10px;color:var(--ink-3);display:flex;align-items:center;gap:6px}
+.user{position:absolute;right:16px;top:50px;max-width:470px;padding:9px 13px;border-radius:14px 14px 4px 14px;background:var(--blue-50);border:1px solid var(--blue-100);font-size:12.5px;font-weight:500;animation:fadeIn .3s .7s both}
+.user .tx{display:inline-block;white-space:nowrap;animation:type 1.5s steps(60,end) .85s both}
+@keyframes type{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+.say{position:absolute;left:16px;display:flex;align-items:flex-start;gap:9px;font-size:12px;width:660px}
+.say .aiav{width:22px;height:22px;flex:none}
+.src{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:700;padding:3px 8px;border-radius:7px;border:1px solid var(--line);background:#fff}
+.dotsld{display:inline-flex;gap:3px;margin-left:6px;vertical-align:middle}
+.dotsld i{width:5px;height:5px;border-radius:50%;background:var(--ink-3);display:block;animation:blink 1s infinite}
+.dotsld i:nth-child(2){animation-delay:.2s}.dotsld i:nth-child(3){animation-delay:.4s}
+.cards{position:absolute;left:47px;top:134px;display:flex;gap:10px}
+.tz{width:205px;padding:11px 12px}
+.tz .top{display:flex;justify-content:space-between;align-items:center}
+.tz .code{font-weight:800;font-size:13px;margin-top:7px}
+.tz .hid{height:9px;width:120px;border-radius:5px;background:linear-gradient(90deg,#E4E9F4,#EEF1F8);margin-top:5px;filter:blur(.5px)}
+.tz dl{display:grid;grid-template-columns:62px 1fr;gap:3px 6px;margin-top:9px;font-size:10.5px}
+.tz dt{color:var(--ink-3)} .tz dd{font-weight:600}
+.tz .ft{display:flex;gap:5px;margin-top:9px;flex-wrap:wrap}
+.btns{position:absolute;left:47px;top:344px;display:flex;gap:8px}
+.btn{font-size:11.5px;font-weight:700;padding:8px 13px;border-radius:9px;background:var(--blue);color:#fff;display:inline-flex;align-items:center;gap:6px}
+.btn.sec{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.btn.press{animation:pop .4s 4.9s both,press .3s 6.3s both}
+@keyframes press{0%{transform:scale(1)}50%{transform:scale(.93);background:var(--blue-600)}100%{transform:scale(1)}}
+.free{position:absolute;left:430px;top:353px;font-size:10px;color:var(--ink-3);white-space:nowrap}
+.cursor{position:absolute;left:0;top:0;width:20px;height:24px;z-index:20;animation:cur 1s cubic-bezier(.4,0,.2,1) 5.3s both}
+@keyframes cur{0%{transform:translate(720px,480px);opacity:0}15%{opacity:1}100%{transform:translate(190px,436px);opacity:1}}
+.toast{position:absolute;left:452px;top:424px;padding:9px 13px;display:flex;align-items:center;gap:9px;font-size:11.5px;border-color:#BFE6CD;background:#F4FBF6;z-index:10}
+</style></head>
+<body data-ms="9000" style="--T:9s"><div class="stage">
+  <div class="cap in" style="--d:.15s"><div class="eyebrow">Discovery where buyers already search</div>
+    <h2>Your teaser appears inside the <em>AI assistants</em> buyers use.</h2></div>
+
+  <div class="win main">
+    <div class="bar"><div class="dots"><i></i><i></i><i></i></div>
+      <div class="ai"><span class="aiav">AI</span>AI assistant</div>
+      <div class="note"><span class="logo"><span class="mk"></span></span>Borderless Deals · via Claude &amp; ChatGPT plugins</div></div>
+
+    <div class="user"><span class="tx">Find US precision-machining companies for sale, $10–40M revenue</span></div>
+
+    <div class="say in" style="top:96px;--d:2.45s"><span class="aiav">AI</span>
+      <div style="padding-top:3px">Found 3 anonymous teasers from <span class="src"><span class="logo"><span class="mk"></span></span>Borderless Deals</span>
+        <span class="dotsld" style="animation:fadeOut .2s 4.1s forwards"><i></i><i></i><i></i></span></div></div>
+
+    <div class="cards">
+      <div class="card tz sl" style="--d:2.9s">
+        <div class="top"><span class="chip">Anonymous teaser</span><span class="muted" style="font-size:12px">🔒</span></div>
+        <div class="code">Project Falcon</div><div class="hid"></div>
+        <dl><dt>Sector</dt><dd>Precision machining</dd><dt>Region</dt><dd>Ohio, US</dd><dt>Revenue</dt><dd>$28M</dd></dl>
+        <div class="ft"><span class="chip g">✓ Broker-mandated</span></div></div>
+      <div class="card tz sl" style="--d:3.3s">
+        <div class="top"><span class="chip">Anonymous teaser</span><span class="muted" style="font-size:12px">🔒</span></div>
+        <div class="code">Project Kestrel</div><div class="hid"></div>
+        <dl><dt>Sector</dt><dd>Tooling &amp; machining</dd><dt>Region</dt><dd>Michigan, US</dd><dt>Revenue</dt><dd>$16M</dd></dl>
+        <div class="ft"><span class="chip g">✓ Broker-mandated</span></div></div>
+      <div class="card tz sl" style="--d:3.7s">
+        <div class="top"><span class="chip">Anonymous teaser</span><span class="muted" style="font-size:12px">🔒</span></div>
+        <div class="code">Project Osprey</div><div class="hid"></div>
+        <dl><dt>Sector</dt><dd>CNC components</dd><dt>Region</dt><dd>Texas, US</dd><dt>Revenue</dt><dd>$37M</dd></dl>
+        <div class="ft"><span class="chip g">✓ Broker-mandated</span></div></div>
+    </div>
+
+    <div class="say in" style="top:316px;--d:4.3s;font-size:11.5px;color:var(--ink-2)"><span class="aiav" style="visibility:hidden">AI</span>
+      <div>Names and financials are released under NDA. To sign an NDA or contact the broker, join Borderless Deals.</div></div>
+    <div class="btns"><span class="btn press">Sign NDA → Join Borderless</span><span class="btn sec pop" style="--d:5s">Ask about Project Falcon</span></div>
+    <div class="free" style="animation:fadeIn .4s 5.1s both,fadeOut .2s 6.4s forwards">Browsing is free · engaging requires membership</div>
+  </div>
+
+  <svg class="cursor" viewBox="0 0 20 24"><path d="M2 2 L2 19 L6.5 14.5 L9.5 21.5 L12.5 20.2 L9.6 13.4 L16 13.4 Z" fill="#0E1A33" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
+  <div class="card toast pop" style="--d:6.6s"><span class="tick">✓</span><span><b>Joined</b> · NDA request routed to the listing broker</span></div>
+</div></body></html>
