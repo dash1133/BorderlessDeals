@@ -249,3 +249,15 @@ footer .legal{margin-top:32px;padding-top:20px;border-top:1px solid var(--line);
 .pb-links a[aria-current=page]{background:var(--blue);border-color:var(--blue);color:#fff}
 @media (max-width:640px){.pb-links a{font-size:14px;padding:6px 11px}.pb-label{display:none}}
 @media (max-width:640px){.nav{position:relative}}
+/* v7 responsive fixes */
+.pb-links{flex-wrap:wrap;overflow:visible}
+@media (max-width:420px){.brand small{display:none}.brand{font-size:15px}.mark{width:28px;height:28px}}
+@media (max-width:640px){
+  .compare.stack thead{display:none}
+  .compare.stack,.compare.stack tbody,.compare.stack tr,.compare.stack td{display:block;width:100%}
+  .compare.stack tr{border-bottom:1px solid var(--line);padding:10px 0}
+  .compare.stack td{border:0;padding:4px 16px}
+  .compare.stack td:first-child{font-size:17px;padding-top:8px}
+  .compare.stack td[data-label]:not(:first-child)::before{content:attr(data-label);display:block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+  .compare.stack td.us{background:none;color:var(--blue);font-weight:600}
+}
