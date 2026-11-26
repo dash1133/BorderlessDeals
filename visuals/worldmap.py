@@ -43,5 +43,5 @@ svg = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W
 svg += [f'<circle cx="{x}" cy="{y}" r="{r:.2f}" fill="#B9C6E4"/>' for x, y in dots]
 svg.append('</svg>')
 open(sys.argv[2] if len(sys.argv) > 2 else 'worldmap.svg', 'w').write('\n'.join(svg))
-pins = {k: [round(v,1) for v in proj(*ll)] for k, ll in {"ohio":(-83,40),"texas":(-97,31),"california":(-120,37),"pune":(74,18.5),"mumbai":(73,19),"delhi":(77,28.6),"tokyo":(139.7,35.7),"germany":(10,51),"london":(0,51.5),"dubai":(55,25)}.items()}
+pins = {k: [round(v,1) for v in proj(*ll)] for k, ll in {"ohio":(-83,40),"texas":(-97,31),"california":(-120,37),"saopaulo":(-46.6,-23.5),"sydney":(151,-33.9),"singapore":(103.8,1.3),"tokyo":(139.7,35.7),"germany":(10,51),"london":(0,51.5),"dubai":(55,25)}.items()}
 print(len(dots), "dots"); print(json.dumps(pins))
