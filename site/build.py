@@ -2,9 +2,9 @@
 Page files start with a front-matter block:  <!--title: ... | desc: ...-->"""
 import pathlib, re
 ROOT = pathlib.Path(__file__).parent
-NAV = [("sell-side-brokers", "Sell-side brokers"), ("buy-side-brokers", "Buy-side brokers"),
-       ("strategic-buyers", "Strategic buyers"), ("private-equity", "Private equity"),
-       ("how-it-works", "How it works"), ("faq", "FAQ")]
+PERSONAS = [("sell-side-brokers", "Sell-side brokers"), ("buy-side-brokers", "Buy-side brokers"),
+            ("strategic-buyers", "Strategic buyers"), ("private-equity", "Private equity")]
+NAV = [("index", "Home"), ("how-it-works", "How it works"), ("providers", "Service providers"), ("faq", "FAQ")]
 LAYOUT = """<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{title}</title><meta name="description" content="{desc}">
@@ -13,7 +13,9 @@ LAYOUT = """<!doctype html>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/site.css"></head>
 <body>
-<header class="nav"><div class="wrap">
+<header class="nav">
+<div class="personabar"><div class="wrap"><span class="pb-label">I'm a</span><nav class="pb-links" aria-label="Personas">{personas}</nav></div></div>
+<div class="wrap">
   <a class="brand" href="index.html"><img class="mark" src="assets/img/logo.svg" alt=""><span>BORDERLESS <b>DEALS</b><small>Cross-border M&amp;A, agent-run</small></span></a>
   <nav class="links" aria-label="Main">{links}</nav>
   <button class="menu" aria-expanded="false" aria-label="Open menu">Menu</button>
@@ -67,7 +69,8 @@ for src in sorted((ROOT / "_pages").glob("*.html")):
     fm = re.match(r"\s*title:(.*?)\|\s*desc:(.*)", m.group(1), re.S) if m else None
     meta = {"title": fm.group(1).strip(), "desc": fm.group(2).strip()} if fm else {}
     links = "".join(f'<a href="{n}.html"{" aria-current=page" if n == src.stem else ""}>{label}</a>' for n, label in NAV)
+    personas = "".join(f'<a href="{n}.html"{" aria-current=page" if n == src.stem else ""}>{label}</a>' for n, label in PERSONAS)
     out = LAYOUT.format(title=meta.get("title", "Borderless Deals"), desc=meta.get("desc", ""),
-                        links=links, body=re.sub(r"<!--JOIN(.*?)-->", lambda j: join_html(dict(kv.split("=",1) for kv in j.group(1).split(";") if "=" in kv)) , raw[m.end():] if m else raw))
+                        links=links, personas=personas, body=re.sub(r"<!--JOIN(.*?)-->", lambda j: join_html(dict(kv.split("=",1) for kv in j.group(1).split(";") if "=" in kv)) , raw[m.end():] if m else raw))
     (ROOT / f"{src.stem}.html").write_text(out)
     print("built", src.stem + ".html")

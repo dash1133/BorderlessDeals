@@ -219,3 +219,22 @@ footer .legal{margin-top:32px;padding-top:20px;border-top:1px solid var(--line);
 .more-link{font-size:14px;font-weight:600}
 .hero .category{max-width:none}
 @media (min-width:961px){.hero .wrap{grid-template-columns:1.05fr 1fr}}
+/* v5: persona bar on top of every page */
+.personabar{background:var(--ink);color:#C9D3EA;font-size:14px}
+.personabar .wrap{display:flex;align-items:center;gap:6px 18px;height:auto;min-height:40px;padding-top:4px;padding-bottom:4px}
+.pb-label{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8EA0C8;white-space:nowrap}
+.pb-links{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;min-width:0}
+.pb-links::-webkit-scrollbar{display:none}
+.pb-links a{color:#fff;font-weight:600;padding:6px 12px;border-radius:999px;white-space:nowrap}
+.pb-links a:hover{background:rgba(255,255,255,.1);text-decoration:none}
+.pb-links a[aria-current=page]{background:var(--blue);color:#fff}
+.nav > .wrap:last-child{height:68px}
+.nav .links{top:100%}
+@media (min-width:1121px){.nav .links{position:static}}
+@media (max-width:640px){.pb-label{display:none}.personabar{font-size:13px}.pb-links a{padding:6px 10px}}
+@media (max-width:640px){.pb-links{flex-wrap:wrap;overflow:visible;justify-content:flex-start}.personabar .wrap{padding-top:6px;padding-bottom:6px}}
+@media (min-width:861px) and (max-width:1120px){
+  .nav .links{display:flex;position:static;flex-direction:row;gap:18px;border:0;padding:0;background:none}
+  .nav .links a{padding:0;border:0;font-size:14.5px}
+  .menu{display:none}.nav .btn{display:inline-flex}
+}
