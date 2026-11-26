@@ -1,0 +1,68 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+.vault{position:absolute;border-radius:18px;border:2px solid var(--line);background:rgba(255,255,255,.7)}
+.v1{left:28px;top:96px;width:440px;height:330px;animation:fadeIn .5s .4s both,lit1 .5s 1.6s forwards}
+.v2{left:58px;top:160px;width:380px;height:240px;background:#fff;animation:fadeIn .5s .6s both,lit2 .5s 3.4s forwards}
+.v3{left:88px;top:224px;width:320px;height:150px;background:#FBFCFF;animation:fadeIn .5s .8s both,lit3 .5s 4.9s forwards}
+@keyframes lit1{to{border-color:var(--saffron);background:rgba(255,246,229,.6)}}
+@keyframes lit2{to{border-color:var(--blue);background:#F6F9FF}}
+@keyframes lit3{to{border-color:var(--green);background:#F2FBF5}}
+.vh{position:absolute;left:14px;top:12px;display:flex;align-items:center;gap:8px;font-weight:700;font-size:12px}
+.vh small{font-weight:500;color:var(--ink-3);font-size:10.5px}
+.lock{position:relative;width:14px;height:16px;flex:none}
+.lock i{position:absolute;left:0;bottom:0;width:14px;height:10px;border-radius:3px;background:var(--ink-3)}
+.lock b{position:absolute;left:3px;top:0;width:8px;height:9px;border:2px solid var(--ink-3);border-bottom:none;border-radius:5px 5px 0 0}
+.lock.open i{background:var(--green)} .lock.open b{border-color:var(--green);transform:translate(5px,-2px)}
+.lk{position:relative;width:18px;height:16px}
+.lk .lock{position:absolute;left:0;top:0}
+.lk .lock.shut{animation:fadeOut .25s var(--u) both}
+.lk .lock.open{animation:fadeIn .25s var(--u) both}
+.v3 .body{position:absolute;left:14px;top:44px;right:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.doc{padding:8px;font-size:10px;font-weight:600}
+.doc .bar-skel{margin-top:6px}
+.wm{font-size:9px;color:var(--ink-3);font-weight:500;margin-top:5px}
+.v2 .row{position:absolute;left:14px;top:40px;display:flex;gap:6px}
+.v1 .row{position:absolute;left:14px;top:38px;display:flex;gap:6px}
+.bcard{position:absolute;left:28px;top:440px;display:flex;align-items:center;gap:10px;padding:7px 12px 7px 8px;font-size:11px}
+.gate{position:absolute;display:flex;gap:6px}
+.log{position:absolute;left:492px;top:96px;width:280px}
+.log .lh{display:flex;justify-content:space-between;align-items:center;padding:0 12px;height:36px;border-bottom:1px solid var(--line);font-size:11px;font-weight:700}
+.entry{display:flex;align-items:center;gap:8px;padding:8px 12px;border-bottom:1px solid #F0F3FA;font-size:11px;animation:slideL .45s cubic-bezier(.2,.7,.2,1) var(--d) both}
+.entry .time{margin-left:auto;color:var(--ink-3);font-variant-numeric:tabular-nums;font-size:10px}
+.dot{width:8px;height:8px;border-radius:50%;flex:none;background:var(--c)}
+.foot{position:absolute;left:492px;top:372px;display:flex;gap:6px;flex-wrap:wrap;width:290px}
+</style></head>
+<body data-ms="9500" style="--T:9.5s"><div class="stage">
+  <div class="cap in" style="--d:.2s"><div class="eyebrow">Tiered disclosure</div>
+    <h2>Every release is <em>approved</em> and logged.</h2></div>
+
+  <div class="vault v1"><div class="vh"><div class="lk" style="--u:1.6s"><span class="lock shut"><b></b><i></i></span><span class="lock open"><b></b><i></i></span></div>
+      Tier 1 · Anonymous teaser <small>sector, region, size band</small></div></div>
+  <div class="vault v2"><div class="vh"><div class="lk" style="--u:3.4s"><span class="lock shut"><b></b><i></i></span><span class="lock open"><b></b><i></i></span></div>
+      Tier 2 · Named profile <small>under NDA only</small></div>
+    <div class="row"><span class="chip g pop" style="--d:2.5s">✓ KYC / AML</span><span class="chip g pop" style="--d:3.1s">✓ NDA signed</span></div></div>
+  <div class="vault v3"><div class="vh"><div class="lk" style="--u:4.9s"><span class="lock shut"><b></b><i></i></span><span class="lock open"><b></b><i></i></span></div>
+      Tier 3 · Data room <small>broker-approved release</small></div>
+    <div class="body">
+      <div class="card doc in" style="--d:5.2s">Financials<div class="bar-skel" style="width:80%"></div><div class="wm">Watermarked</div></div>
+      <div class="card doc in" style="--d:5.4s">Contracts<div class="bar-skel" style="width:65%"></div><div class="wm">Watermarked</div></div>
+      <div class="card doc in" style="--d:5.6s">QoE report<div class="bar-skel" style="width:72%"></div><div class="wm">Revocable</div></div>
+    </div></div>
+
+  <div class="card bcard in" style="--d:1s"><div class="agent buyer sm">B</div><div><b>Buyer agent</b> <span class="muted">· Family office, Mumbai</span></div></div>
+
+  <div class="card log in" style="--d:.5s">
+    <div class="lh">Access log · Project Falcon <span class="chip k">Seller's broker view</span></div>
+    <div class="entry" style="--d:1.7s;--c:var(--saffron)"><span class="dot"></span>Viewed anonymous teaser<span class="time">10:02</span></div>
+    <div class="entry" style="--d:2.6s;--c:var(--green)"><span class="dot"></span>KYC / AML passed<span class="time">10:09</span></div>
+    <div class="entry" style="--d:3.2s;--c:var(--blue)"><span class="dot"></span>NDA signed · name revealed<span class="time">10:14</span></div>
+    <div class="entry" style="--d:4.4s;--c:var(--teal)"><span class="dot"></span>Broker approved data-room release<span class="time">10:15</span></div>
+    <div class="entry" style="--d:5.3s;--c:var(--green)"><span class="dot"></span>Opened: Financials<span class="time">10:16</span></div>
+    <div class="entry" style="--d:6s;--c:var(--ink-3)"><span class="dot"></span>Agent answered Q&A · cited<span class="time">10:21</span></div>
+    <div class="entry" style="--d:6.6s;--c:var(--ink-3)"><span class="dot"></span>Every disclosure logged<span class="time">live</span></div>
+  </div>
+  <div class="foot">
+    <span class="chip k pop" style="--d:7.1s">Agents never bind a principal</span>
+    <span class="chip k pop" style="--d:7.35s">Platform never holds escrow</span>
+  </div>
+</div></body></html>

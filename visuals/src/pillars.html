@@ -1,0 +1,86 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+.app{left:24px;top:78px;width:752px;height:400px}
+.tab{position:relative;overflow:hidden}
+.tab .on{position:absolute;inset:-1px;background:var(--blue);color:#fff;display:grid;place-items:center;opacity:0;border-radius:6px}
+.tab:nth-child(1) .on{animation:p1 var(--T) linear both}
+.tab:nth-child(2) .on{animation:p2 var(--T) linear both}
+.tab:nth-child(3) .on{animation:p3 var(--T) linear both}
+@keyframes p1{0%,32.5%{opacity:1}33.5%,100%{opacity:0}}
+@keyframes p2{0%,32.5%{opacity:0}33.5%,66%{opacity:1}67%,100%{opacity:0}}
+@keyframes p3{0%,66%{opacity:0}67%,100%{opacity:1}}
+.side{position:absolute;left:0;top:34px;bottom:0;width:214px;border-right:1px solid var(--line);padding:14px 12px;display:grid;align-content:start;gap:8px}
+.item{position:relative;padding:10px 10px 12px;border-radius:10px;border:1px solid transparent}
+.item .h{font-weight:700;font-size:12.5px;display:flex;gap:8px;align-items:center}
+.item .h i{width:22px;height:22px;border-radius:6px;background:var(--blue-50);color:var(--blue);display:grid;place-items:center;font-style:normal;font-size:11px}
+.item .d{font-size:10.5px;color:var(--ink-3);margin:3px 0 0 30px}
+.item .hl{position:absolute;inset:0;border:1px solid var(--blue);border-radius:10px;background:rgba(31,79,224,.04);opacity:0}
+.item .pg{position:absolute;left:10px;right:10px;bottom:5px;height:3px;border-radius:2px;background:var(--blue-50);opacity:0}
+.item .pg b{display:block;height:100%;background:var(--blue);border-radius:2px;transform-origin:left;transform:scaleX(0)}
+.i1 .hl,.i1 .pg{animation:p1 var(--T) linear both}.i2 .hl,.i2 .pg{animation:p2 var(--T) linear both}.i3 .hl,.i3 .pg{animation:p3 var(--T) linear both}
+.i1 .pg b{animation:grow 2.9s linear 0s both}.i2 .pg b{animation:grow 2.9s linear 3s both}.i3 .pg b{animation:grow 2.9s linear 6s both}
+.pane{position:absolute;left:214px;right:0;top:34px;bottom:0;padding:16px 18px}
+.pane.d1{animation:p1 var(--T) linear both}.pane.d2{animation:p2 var(--T) linear both}.pane.d3{animation:p3 var(--T) linear both}
+.ph{font-weight:700;font-size:13px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.wc{padding:10px 12px;display:grid;gap:6px}
+.wc .top{display:flex;gap:8px;align-items:center}
+.wc .t{font-weight:700;font-size:12px}.wc .s{font-size:10px;color:var(--ink-3)}
+.thesis{padding:10px 12px;font-size:11.5px;display:flex;gap:10px;align-items:center;margin-bottom:12px}
+.type{display:inline-block;overflow:hidden;white-space:nowrap;vertical-align:bottom;animation:typing 1.4s steps(48,end) 3.4s both}
+.row{display:grid;grid-template-columns:28px 1fr 140px;align-items:center;gap:10px;padding:9px 10px;margin-bottom:7px}
+.rk{font-weight:800;color:var(--blue);font-size:13px}
+.row .t{font-weight:700;font-size:11.5px}.row .why{display:flex;gap:4px;margin-top:4px;flex-wrap:wrap}
+.score{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700}
+.score .tr{flex:1;height:6px;border-radius:3px;background:var(--blue-50);overflow:hidden}
+.score .tr b{display:block;height:100%;background:var(--blue);transform-origin:left;animation:grow .7s ease-out var(--d) both}
+.req{padding:10px 12px;font-size:11px;margin-bottom:10px}
+.bid{display:grid;grid-template-columns:30px 1fr auto;gap:10px;align-items:center;padding:9px 12px;margin-bottom:7px}
+.bid .t{font-weight:700;font-size:11.5px}.bid .s{font-size:10px;color:var(--ink-3)}
+.star{color:var(--saffron);font-weight:700;font-size:10.5px}
+</style></head>
+<body data-ms="9000" style="--T:9s"><div class="stage">
+  <div class="cap in" style="--d:.15s"><div class="eyebrow">One platform · three pillars · run by agents</div>
+    <h2>LinkedIn for companies. Upwork for deal services.</h2></div>
+
+  <div class="win app in" style="--d:.25s">
+    <div class="bar"><div class="dots"><i></i><i></i><i></i></div>
+      <div class="logo"><span class="mk"></span>BORDERLESS <b>DEALS</b></div>
+      <div class="tabs"><div class="tab">Directory<span class="on">Directory</span></div><div class="tab">Discovery<span class="on">Discovery</span></div><div class="tab">Services<span class="on">Services</span></div></div></div>
+    <div class="side">
+      <div class="item i1"><span class="hl"></span><div class="h"><i>1</i>Directory</div><div class="d">Every party has an agent-written page</div><span class="pg"><b></b></span></div>
+      <div class="item i2"><span class="hl"></span><div class="h"><i>2</i>Discovery</div><div class="d">Buyers find targets, sellers find buyers</div><span class="pg"><b></b></span></div>
+      <div class="item i3"><span class="hl"></span><div class="h"><i>3</i>Services</div><div class="d">Hire providers, run the deal to close</div><span class="pg"><b></b></span></div>
+    </div>
+
+    <!-- 1 Directory -->
+    <div class="pane d1">
+      <div class="ph">Directory · US–India corridor <span class="chip">Agent-written pages</span></div>
+      <div class="grid">
+        <div class="card wc in" style="--d:.6s"><div class="top"><div class="agent seller sm">S</div><div><div class="t">“Project Falcon”</div><div class="s">Precision machining · Ohio</div></div></div><div><span class="chip s">Actively for sale</span></div><div class="bar-skel" style="width:85%"></div></div>
+        <div class="card wc in" style="--d:.9s"><div class="top"><div class="agent buyer sm">B</div><div><div class="t">Family office · Mumbai</div><div class="s">Buyer · US industrials</div></div></div><div><span class="chip">Standing acquisition profile</span></div><div class="bar-skel" style="width:70%"></div></div>
+        <div class="card wc in" style="--d:1.2s"><div class="top"><div class="agent broker sm">Br</div><div><div class="t">Sell-side broker · Midwest</div><div class="s">Mandates · closed deals · markets</div></div></div><div><span class="chip t">Mandate verified</span></div><div class="bar-skel" style="width:78%"></div></div>
+        <div class="card wc in" style="--d:1.5s"><div class="top"><div class="agent seller sm">S</div><div><div class="t">Specialty distributor</div><div class="s">Texas · not for sale</div></div></div><div><span class="chip k">Not for sale, but visible</span></div><div class="bar-skel" style="width:60%"></div></div>
+      </div>
+    </div>
+
+    <!-- 2 Discovery -->
+    <div class="pane d2">
+      <div class="card thesis"><div class="agent buyer sm">B</div><div><div class="muted" style="font-size:10px">Buyer thesis, in plain language</div><span class="type">Profitable specialty-chemicals distributors, US Midwest, $5–30M revenue</span></div></div>
+      <div class="ph" style="margin-bottom:8px">Ranked matches <span class="chip g fi" style="--d:4.6s">3 new · with reasons</span></div>
+      <div class="card row sl" style="--d:4.8s"><span class="rk">1</span><div><div class="t">Anonymous teaser · Ohio</div><div class="why"><span class="chip g">Thesis fit</span><span class="chip g">Size fit</span><span class="chip t">Low screening risk</span></div></div><div class="score"><div class="tr"><b style="width:94%;--d:5.1s"></b></div>94</div></div>
+      <div class="card row sl" style="--d:5.1s"><span class="rk">2</span><div><div class="t">Broker portfolio · Illinois</div><div class="why"><span class="chip g">Thesis fit</span><span class="chip s">Data partial</span></div></div><div class="score"><div class="tr"><b style="width:88%;--d:5.4s"></b></div>88</div></div>
+      <div class="card row sl" style="--d:5.4s"><span class="rk">3</span><div><div class="t">Open to approaches · Indiana</div><div class="why"><span class="chip g">Size fit</span><span class="chip k">Minority only</span></div></div><div class="score"><div class="tr"><b style="width:81%;--d:5.7s"></b></div>81</div></div>
+    </div>
+
+    <!-- 3 Services -->
+    <div class="pane d3">
+      <div class="card req"><div class="muted" style="font-size:10px;margin-bottom:3px">Requirement floated by the buyer's agent</div><b>US tax structuring + state licensing</b> for a Pune-based family business acquiring an Ohio manufacturer · 3 weeks</div>
+      <div class="ph" style="margin-bottom:8px">Provider proposals <span class="chip v">Upwork-style</span></div>
+      <div class="card bid sl" style="--d:6.4s"><div class="agent provider sm">Tx</div><div><div class="t">Cross-border tax adviser</div><div class="s">Scope · price · timeline</div></div><span class="star">★ 4.9 · 31 deals</span></div>
+      <div class="card bid sl" style="--d:6.7s"><div class="agent provider sm">Lg</div><div><div class="t">US corporate counsel</div><div class="s">Licensing + SPA support</div></div><span class="star">★ 4.8 · 24 deals</span></div>
+      <div class="card bid sl" style="--d:7s"><div class="agent provider sm">Va</div><div><div class="t">Valuation firm</div><div class="s">Independent valuation</div></div><span class="star">★ 4.7 · 18 deals</span></div>
+      <div style="margin-top:4px"><span class="chip g pop" style="--d:7.6s">✓ Hired · work lands in the deal room</span></div>
+    </div>
+  </div>
+</div></body></html>

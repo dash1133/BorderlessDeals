@@ -1,0 +1,90 @@
+/* Borderless Deals scene kit — shared by every GIF scene (800x500 stage).
+   Scenes use CSS animations only; render.js pauses them and scrubs currentTime
+   frame by frame, so timing is deterministic. Use animation-delay + fill-mode both. */
+:root{
+  --ink:#0E1A33; --ink-2:#3B4763; --ink-3:#6B7894; --line:#E3E9F5; --grid:#E9EFFB;
+  --bg:#F7F9FE; --card:#FFFFFF;
+  --blue:#1F4FE0; --blue-600:#1A43C4; --blue-50:#EEF3FF; --blue-100:#DCE6FF;
+  --saffron:#F59E0B; --saffron-50:#FFF6E5;
+  --teal:#0EA5A4; --teal-50:#E6F7F7;
+  --violet:#7C3AED; --violet-50:#F3EDFF;
+  --green:#16A34A; --green-50:#E8F7EE;
+  --red:#DC2626; --red-50:#FDECEC;
+  --r:12px; --shadow:0 1px 2px rgba(14,26,51,.06),0 8px 24px rgba(14,26,51,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:800px;height:500px;overflow:hidden}
+body{font-family:Inter,"FreeSans",system-ui,sans-serif;color:var(--ink);font-size:13px;line-height:1.35;
+  -webkit-font-smoothing:antialiased;background:var(--bg)}
+.stage{position:relative;width:800px;height:500px;overflow:hidden;
+  background:
+    radial-gradient(ellipse 60% 50% at 15% 0%,rgba(31,79,224,.08),transparent 70%),
+    radial-gradient(ellipse 50% 40% at 100% 100%,rgba(245,158,11,.07),transparent 70%),
+    linear-gradient(var(--grid) 1px,transparent 1px) 0 0/40px 40px,
+    linear-gradient(90deg,var(--grid) 1px,transparent 1px) 0 0/40px 40px,
+    var(--bg);}
+/* seamless loop: fade from white at start and to white at end (set --T on body) */
+.stage::after{content:"";position:absolute;inset:0;background:var(--bg);pointer-events:none;z-index:99;
+  animation:loopfade var(--T,8s) linear both}
+@keyframes loopfade{0%{opacity:1}5%{opacity:0}94%{opacity:0}100%{opacity:1}}
+
+/* caption strip (top-left) */
+.cap{position:absolute;left:28px;top:22px;z-index:5}
+.cap .eyebrow{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);font-weight:700}
+.cap h2{font-size:20px;font-weight:700;letter-spacing:-.01em;margin-top:3px}
+.cap h2 em{font-style:normal;color:var(--blue)}
+
+/* app window chrome */
+.win{position:absolute;background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
+.win .bar{height:34px;display:flex;align-items:center;gap:10px;padding:0 12px;border-bottom:1px solid var(--line);background:#FBFCFF}
+.win .dots{display:flex;gap:5px}.win .dots i{width:8px;height:8px;border-radius:50%;background:#D9E0EE;display:block}
+.win .title{font-size:11px;color:var(--ink-3);font-weight:600}
+.logo{display:flex;align-items:center;gap:6px;font-weight:800;font-size:11px;letter-spacing:.02em}
+.logo b{color:var(--blue)}
+.logo .mk{width:16px;height:16px;border-radius:5px;background:var(--blue);position:relative;overflow:hidden}
+.logo .mk::before,.logo .mk::after{content:"";position:absolute;border:2px solid #fff;border-radius:50%;width:16px;height:16px;top:6px}
+.logo .mk::before{left:-6px}.logo .mk::after{left:6px;border-color:var(--saffron)}
+.tabs{display:flex;gap:4px;margin-left:auto}
+.tab{font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 9px;border-radius:6px;color:var(--ink-3);border:1px solid var(--line);background:#fff}
+.tab.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+
+/* primitives */
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;box-shadow:0 1px 2px rgba(14,26,51,.05)}
+.chip{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:600;padding:3px 8px;border-radius:999px;background:var(--blue-50);color:var(--blue);white-space:nowrap}
+.chip.g{background:var(--green-50);color:var(--green)} .chip.r{background:var(--red-50);color:var(--red)}
+.chip.s{background:var(--saffron-50);color:#B45309} .chip.t{background:var(--teal-50);color:#0F766E}
+.chip.v{background:var(--violet-50);color:var(--violet)} .chip.k{background:#EEF1F7;color:var(--ink-2)}
+.muted{color:var(--ink-3)} .b{font-weight:700}
+.bar-skel{height:7px;border-radius:4px;background:#E8EDF7}
+.tick{display:inline-grid;place-items:center;width:16px;height:16px;border-radius:50%;background:var(--green);color:#fff;font-size:10px;font-weight:800}
+.flag{display:inline-grid;place-items:center;width:16px;height:16px;border-radius:50%;background:var(--red);color:#fff;font-size:10px;font-weight:800}
+
+/* agent glyph: hexagon with role colour */
+.agent{width:38px;height:38px;position:relative;display:grid;place-items:center;color:#fff;font-weight:800;font-size:12px}
+.agent::before{content:"";position:absolute;inset:0;background:var(--c,var(--blue));
+  clip-path:polygon(25% 4%,75% 4%,100% 50%,75% 96%,25% 96%,0 50%);z-index:-1}
+.agent.buyer{--c:var(--blue)} .agent.seller{--c:var(--saffron)} .agent.broker{--c:var(--teal)} .agent.provider{--c:var(--violet)} .agent.pe{--c:#0E1A33}
+.agent.sm{width:26px;height:26px;font-size:9px}
+.agent.lg{width:54px;height:54px;font-size:15px}
+
+/* reusable keyframes */
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes fadeOut{from{opacity:1}to{opacity:0}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:none}}
+@keyframes slideL{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:none}}
+@keyframes slideR{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{opacity:0;transform:scale(.6)}70%{opacity:1;transform:scale(1.08)}100%{opacity:1;transform:scale(1)}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(31,79,224,.45)}100%{box-shadow:0 0 0 16px rgba(31,79,224,0)}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes growY{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes typing{from{width:0}}
+@keyframes blink{50%{opacity:0}}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* helper: element appears at --d and stays */
+.in{animation:fadeUp .5s cubic-bezier(.2,.7,.2,1) var(--d,0s) both}
+.pop{animation:pop .45s cubic-bezier(.2,.7,.2,1) var(--d,0s) both}
+.sl{animation:slideL .5s cubic-bezier(.2,.7,.2,1) var(--d,0s) both}
+.sr{animation:slideR .5s cubic-bezier(.2,.7,.2,1) var(--d,0s) both}
+.fi{animation:fadeIn .4s ease var(--d,0s) both}

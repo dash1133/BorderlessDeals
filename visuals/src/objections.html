@@ -1,0 +1,33 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+.grid{position:absolute;left:28px;top:96px;width:744px;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:180px 180px;gap:14px}
+.fc{position:relative;perspective:1000px;animation:fadeUp .5s cubic-bezier(.2,.7,.2,1) var(--a) both}
+.face{position:absolute;inset:0;border-radius:12px;padding:16px;backface-visibility:hidden;display:flex;flex-direction:column}
+.q{background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);animation:flipOut .4s ease-in var(--d) forwards}
+.ans{background:var(--green-50);border:1px solid #BFE6CD;transform:rotateY(-90deg);animation:flipIn .4s ease-out calc(var(--d) + .4s) forwards}
+@keyframes flipOut{to{transform:rotateY(90deg)}}
+@keyframes flipIn{to{transform:rotateY(0)}}
+.q .k,.ans .k{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700}
+.q .k{color:var(--ink-3)} .ans .k{color:var(--green);display:flex;align-items:center;gap:6px}
+.q .t{font-size:17px;font-weight:700;letter-spacing:-.01em;margin-top:10px;line-height:1.25}
+.q .m{margin-top:auto;font-size:28px;font-weight:800;color:var(--blue-100);line-height:1}
+.ans .t{font-size:12.5px;font-weight:600;margin-top:10px;line-height:1.4;color:var(--ink)}
+</style></head>
+<body data-ms="9500" style="--T:9.5s"><div class="stage">
+  <div class="cap in" style="--d:.2s"><div class="eyebrow">Objections, answered</div>
+    <h2>The questions brokers <em>ask first</em>.</h2></div>
+  <div class="grid">
+    <div class="fc" style="--a:.4s;--d:1.4s"><div class="face q"><div class="k">Broker</div><div class="t">Will this cut me out?</div><div class="m">?</div></div>
+      <div class="face ans"><div class="k"><span class="tick">✓</span>No</div><div class="t">The platform is broker-centric. In Horizon 1 sellers come in only through a broker, and the platform is not a broker.</div></div></div>
+    <div class="fc" style="--a:.5s;--d:2.2s"><div class="face q"><div class="k">Broker</div><div class="t">Will I lose my client or my fee?</div><div class="m">?</div></div>
+      <div class="face ans"><div class="k"><span class="tick">✓</span>Never</div><div class="t">You keep your mandate, your client and your fee. The platform never takes a percentage of your deal.</div></div></div>
+    <div class="fc" style="--a:.6s;--d:3s"><div class="face q"><div class="k">Everyone</div><div class="t">Is the platform a broker?</div><div class="m">?</div></div>
+      <div class="face ans"><div class="k"><span class="tick">✓</span>No</div><div class="t">It is a technology and marketplace platform. Brokers on it hold their own licences.</div></div></div>
+    <div class="fc" style="--a:.7s;--d:3.8s"><div class="face q"><div class="k">Buyer</div><div class="t">Who holds the money?</div><div class="m">?</div></div>
+      <div class="face ans"><div class="k"><span class="tick">✓</span>Licensed providers</div><div class="t">Licensed escrow and payment providers on the platform. Borderless Deals never holds your money.</div></div></div>
+    <div class="fc" style="--a:.8s;--d:4.6s"><div class="face q"><div class="k">Broker</div><div class="t">Will screening kill my deal late?</div><div class="m">?</div></div>
+      <div class="face ans"><div class="k"><span class="tick">✓</span>Flagged early</div><div class="t">Likely foreign-investment screening is flagged at match time, before anyone spends money.</div></div></div>
+    <div class="fc" style="--a:.9s;--d:5.4s"><div class="face q"><div class="k">Broker</div><div class="t">Can I use it for domestic deals too?</div><div class="m">?</div></div>
+      <div class="face ans"><div class="k"><span class="tick">✓</span>Yes</div><div class="t">Each mandate can be visible worldwide, in chosen countries, or to domestic buyers only.</div></div></div>
+  </div>
+</div></body></html>

@@ -1,0 +1,49 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+.party{position:absolute;top:196px;width:150px;padding:12px;display:flex;flex-direction:column;gap:6px}
+.party .t{font-weight:700;font-size:12px}.party .s{font-size:10.5px;color:var(--ink-3)}
+.party.seller{left:24px}.party.buyer{left:626px}
+.col{position:absolute;top:140px;width:46px;height:220px}
+.col>div{position:absolute;inset:0;border-radius:10px;display:flex;align-items:center;justify-content:center}
+.col .vt{writing-mode:vertical-rl;transform:rotate(180deg);font-size:11.5px;font-weight:700;white-space:nowrap}
+.col .wall{background:repeating-linear-gradient(135deg,#FDECEC 0 8px,#FBDADA 8px 16px);border:1.5px solid #F3B4B4;color:var(--red);
+  animation:fadeIn .4s var(--w) both,wallGo .45s cubic-bezier(.4,0,.2,1) var(--d) forwards}
+.col .open{background:var(--green-50);border:1.5px solid #A7DDBA;color:var(--green);opacity:0;
+  animation:openIn .45s cubic-bezier(.2,.7,.2,1) calc(var(--d) + .15s) both}
+.col .ic{position:absolute;top:-24px;left:50%;transform:translateX(-50%);inset:auto}
+.col .ic .flag,.col .ic .tick{position:absolute;left:-8px;top:0}
+.col .ic .flag{animation:fadeIn .3s var(--w) both,fadeOut .2s var(--d) forwards}
+.col .ic .tick{animation:pop .4s calc(var(--d) + .2s) both}
+@keyframes wallGo{to{opacity:0;transform:scaleY(.15)}}
+@keyframes openIn{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:none}}
+.track{position:absolute;left:180px;right:180px;top:396px;height:2px;background:#D6DEEE;border-radius:2px}
+.walker{position:absolute;top:383px;left:0;animation:fadeIn .3s .8s both,walk 4.9s linear 1s both}
+@keyframes walk{from{transform:translateX(177px)}to{transform:translateX(587px)}}
+svg.ov{position:absolute;inset:0;width:800px;height:500px;z-index:0;pointer-events:none}
+.link{fill:none;stroke:var(--green);stroke-width:3;stroke-linecap:round;stroke-dasharray:470;stroke-dashoffset:470;animation:draw .9s cubic-bezier(.4,0,.2,1) 6.1s forwards}
+.matched{position:absolute;left:400px;top:432px;transform:translateX(-50%)}
+.legend{position:absolute;left:180px;right:180px;top:404px;display:flex;justify-content:space-between;font-size:10px;color:var(--ink-3)}
+</style></head>
+<body data-ms="9000" style="--T:9s"><div class="stage">
+  <div class="cap in" style="--d:.15s"><div class="eyebrow">The problem</div>
+    <h2>Great companies, <em>invisible</em> abroad.</h2></div>
+
+  <div class="card party seller sr" style="--d:.3s"><div class="agent seller sm">S</div>
+    <div class="t">US seller</div><div class="s">Ohio · via local broker<br>Domestic buyers only</div></div>
+  <div class="card party buyer sl" style="--d:.45s"><div class="agent buyer sm">B</div>
+    <div class="t">Foreign buyer</div><div class="s">India · capital ready<br>Can't see US targets</div></div>
+
+  <svg class="ov" viewBox="0 0 800 500"><path class="link" d="M174 250 L626 250"/></svg>
+  <div class="col" style="left:196px;--w:.5s;--d:1.33s"><div class="wall"><span class="vt">Discovery</span></div><div class="open"><span class="vt">Global directory</span></div><div class="ic"><span class="flag">✕</span><span class="tick">✓</span></div></div>
+  <div class="col" style="left:256px;--w:.58s;--d:2.05s"><div class="wall"><span class="vt">Information</span></div><div class="open"><span class="vt">Normalized financials</span></div><div class="ic"><span class="flag">✕</span><span class="tick">✓</span></div></div>
+  <div class="col" style="left:316px;--w:.66s;--d:2.77s"><div class="wall"><span class="vt">Language</span></div><div class="open"><span class="vt">Agents translate</span></div><div class="ic"><span class="flag">✕</span><span class="tick">✓</span></div></div>
+  <div class="col" style="left:376px;--w:.74s;--d:3.48s"><div class="wall"><span class="vt">Regulation</span></div><div class="open"><span class="vt">Regulatory pre-check</span></div><div class="ic"><span class="flag">✕</span><span class="tick">✓</span></div></div>
+  <div class="col" style="left:436px;--w:.82s;--d:4.2s"><div class="wall"><span class="vt">Trust</span></div><div class="open"><span class="vt">Verified &amp; rated</span></div><div class="ic"><span class="flag">✕</span><span class="tick">✓</span></div></div>
+  <div class="col" style="left:496px;--w:.9s;--d:4.92s"><div class="wall"><span class="vt">Execution cost</span></div><div class="open"><span class="vt">Services marketplace</span></div><div class="ic"><span class="flag">✕</span><span class="tick">✓</span></div></div>
+  <div class="col" style="left:556px;--w:.98s;--d:5.63s"><div class="wall"><span class="vt">Fragmented brokers</span></div><div class="open"><span class="vt">Global broker reach</span></div><div class="ic"><span class="flag">✕</span><span class="tick">✓</span></div></div>
+
+  <div class="track fi" style="--d:.7s"></div>
+  <div class="walker"><div class="agent broker sm">A</div></div>
+
+  <div class="matched"><span class="chip g pop" style="--d:6.8s;font-size:12px;padding:5px 12px">✓ Seven barriers removed · seller meets buyer</span></div>
+</div></body></html>

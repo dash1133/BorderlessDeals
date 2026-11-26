@@ -1,0 +1,62 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+svg.ov{position:absolute;left:0;top:0;width:800px;height:500px}
+.track{fill:none;stroke:var(--blue-100);stroke-width:10;opacity:0;animation:fadeIn .6s .5s forwards}
+.run{fill:none;stroke:var(--blue);stroke-width:3;stroke-dasharray:6 10;opacity:0;animation:fadeIn .6s .9s forwards,march 1.2s linear .9s infinite}
+@keyframes march{to{stroke-dashoffset:-32}}
+.hub{position:absolute;left:470px;top:285px;width:150px;height:150px;margin:-75px 0 0 -75px;border-radius:50%;background:#fff;box-shadow:var(--shadow);
+  display:grid;place-items:center;text-align:center;animation:pop .5s .6s both}
+.hub .ring{position:absolute;inset:-8px;border-radius:50%;border:2px dashed var(--blue-100);animation:spin 12s linear infinite}
+.mk{width:44px;height:44px;border-radius:12px;background:var(--blue);position:relative;overflow:hidden;margin:0 auto}
+.mk::before,.mk::after{content:"";position:absolute;border:5px solid #fff;border-radius:50%;width:44px;height:44px;top:17px}
+.mk::before{left:-17px}.mk::after{left:17px;border-color:var(--saffron)}
+.hub .nm{font-weight:800;font-size:12px;margin-top:8px}.hub .nm b{color:var(--blue)}
+.hub .sb{font-size:9.5px;color:var(--ink-3);margin-top:2px}
+.arrow{position:absolute;width:0;height:0;border-left:12px solid var(--blue);border-top:7px solid transparent;border-bottom:7px solid transparent;
+  margin:-7px 0 0 -6px;transform:rotate(var(--r));opacity:0;animation:fadeIn .4s 1s forwards}
+.node{position:absolute;width:156px;margin-left:-78px;margin-top:-34px;padding:9px 11px;animation:pop .45s var(--a) both}
+.node .t{font-weight:700;font-size:12.5px;display:flex;align-items:center;gap:7px}
+.node .ic{width:18px;height:18px;border-radius:5px;background:var(--c);flex:none}
+.dots{display:flex;gap:4px;margin-top:8px}
+.dots i{width:16px;height:6px;border-radius:3px;background:#EDF1F9;display:block;position:relative;overflow:hidden}
+.dots i::after{content:"";position:absolute;inset:0;background:var(--c);transform:scaleX(0);transform-origin:left;animation:grow .3s ease-out var(--f) forwards}
+.runner{position:absolute;left:0;top:0;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:var(--saffron);border:3px solid #fff;box-shadow:0 0 0 4px rgba(245,158,11,.25);
+  offset-path:path('M470 135 A150 150 0 0 1 470 435 A150 150 0 0 1 470 135 Z');offset-rotate:0deg;opacity:0;
+  animation:fadeIn .3s 1.5s forwards,orbit 2.4s linear 1.5s 3 both}
+@keyframes orbit{from{offset-distance:0%}to{offset-distance:100%}}
+.side{position:absolute;left:28px;top:100px;width:180px;padding:14px}
+.side .h{font-weight:700;font-size:12px}
+.side li{list-style:none;font-size:11px;color:var(--ink-2);display:flex;gap:7px;margin-top:9px;align-items:flex-start}
+.side li span{flex:none;width:16px;height:16px;border-radius:50%;background:var(--blue-50);color:var(--blue);font-size:9px;font-weight:800;display:grid;place-items:center}
+.where{position:absolute;left:28px;top:340px;width:190px;display:flex;flex-wrap:wrap;gap:6px}
+</style></head>
+<body data-ms="9500" style="--T:9.5s"><div class="stage">
+  <div class="cap in" style="--d:.2s"><div class="eyebrow">The distribution flywheel</div>
+    <h2>Every member widens <em>every listing's</em> reach.</h2></div>
+  <svg class="ov" viewBox="0 0 800 500">
+    <circle class="track" cx="470" cy="285" r="150"/>
+    <circle class="run" cx="470" cy="285" r="150"/>
+  </svg>
+  <div class="arrow" style="left:576px;top:179px;--r:45deg"></div>
+  <div class="arrow" style="left:576px;top:391px;--r:135deg"></div>
+  <div class="arrow" style="left:364px;top:391px;--r:225deg"></div>
+  <div class="arrow" style="left:364px;top:179px;--r:315deg"></div>
+  <div class="runner"></div>
+  <div class="hub"><div class="ring"></div><div><div class="mk"></div><div class="nm">Borderless <b>Deals</b></div><div class="sb">Agent-run marketplace</div></div></div>
+
+  <!-- node passes: top 1.5+2.4p, right +0.6, bottom +1.2, left +1.8 -->
+  <div class="card node" style="left:470px;top:135px;--a:.9s;--c:var(--blue)"><div class="t"><span class="ic"></span>More members</div>
+    <div class="dots"><i style="--f:1.5s"></i><i style="--f:1.7s"></i><i style="--f:3.9s"></i><i style="--f:4.1s"></i><i style="--f:6.3s"></i><i style="--f:6.5s"></i></div></div>
+  <div class="card node" style="left:640px;top:285px;--a:1.05s;--c:var(--saffron)"><div class="t"><span class="ic"></span>More reach</div>
+    <div class="dots"><i style="--f:2.1s"></i><i style="--f:2.3s"></i><i style="--f:4.5s"></i><i style="--f:4.7s"></i><i style="--f:6.9s"></i><i style="--f:7.1s"></i></div></div>
+  <div class="card node" style="left:470px;top:435px;--a:1.2s;--c:var(--teal)"><div class="t"><span class="ic"></span>More brokers</div>
+    <div class="dots"><i style="--f:2.7s"></i><i style="--f:2.9s"></i><i style="--f:5.1s"></i><i style="--f:5.3s"></i><i style="--f:7.5s"></i><i style="--f:7.7s"></i></div></div>
+  <div class="card node" style="left:300px;top:285px;--a:1.35s;--c:var(--violet)"><div class="t"><span class="ic"></span>More listings</div>
+    <div class="dots"><i style="--f:3.3s"></i><i style="--f:3.5s"></i><i style="--f:5.7s"></i><i style="--f:5.9s"></i><i style="--f:8.1s"></i><i style="--f:8.3s"></i></div></div>
+
+  <div class="card side in" style="--d:.5s"><div class="h">Why members stay</div>
+    <ul><li><span>1</span>Anonymous teasers published where buyers already search</li>
+    <li><span>2</span>Browse free · join to sign an NDA or contact a broker</li>
+    <li><span>3</span>Each new member widens the audience for every listing</li></ul></div>
+  <div class="where"><span class="chip pop" style="--d:1.6s">Claude</span><span class="chip pop" style="--d:1.8s">ChatGPT</span><span class="chip pop" style="--d:2s">Google</span><span class="chip s pop" style="--d:2.2s">Borderless Deals</span></div>
+</div></body></html>

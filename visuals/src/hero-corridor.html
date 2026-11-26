@@ -1,0 +1,55 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+.map{position:absolute;left:0;top:60px;width:800px;height:400px;animation:fadeIn .6s .1s both}
+svg.ov{position:absolute;left:0;top:0;width:800px;height:500px;overflow:visible}
+.arc{fill:none;stroke-linecap:round}
+.arc.main{stroke:var(--saffron);stroke-width:3;stroke-dasharray:520;stroke-dashoffset:520;animation:draw 1.3s cubic-bezier(.4,0,.2,1) 1.1s forwards}
+.arc.glow{stroke:rgba(245,158,11,.18);stroke-width:12;stroke-dasharray:520;stroke-dashoffset:520;animation:draw 1.3s cubic-bezier(.4,0,.2,1) 1.1s forwards}
+.arc.next{stroke:var(--blue);stroke-width:2;stroke-dasharray:5 6;opacity:0;animation:fadeIn .6s var(--d) both}
+.pin{position:absolute;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1px var(--line);animation:pop .4s var(--d) both,pulse 1.6s ease-out var(--d) infinite}
+.pin.us{background:var(--saffron);left:216px;top:174px;--d:.5s}
+.pin.in{background:var(--blue);left:564px;top:236px;--d:2.2s}
+.pin.jp{background:var(--blue);left:710px;top:187px;--d:5.6s;opacity:.9}
+.pin.eu{background:var(--blue);left:422px;top:143px;--d:5.9s}
+.party{position:absolute;width:222px;padding:10px 12px;display:flex;gap:10px;align-items:flex-start}
+.party .t{font-weight:700;font-size:12px}.party .s{font-size:10.5px;color:var(--ink-3);margin-top:2px}
+.party.seller{left:40px;top:250px}
+.party.buyer{left:560px;top:300px}
+.teaser{position:absolute;left:0;top:0;offset-path:path('M216 174 Q390 20 564 236');offset-rotate:0deg;
+  width:118px;padding:6px 8px;font-size:9.5px;opacity:0;animation:travel 2.2s cubic-bezier(.5,0,.3,1) 1.7s both}
+.teaser .bars{display:grid;gap:3px;margin-top:4px}
+@keyframes travel{0%{offset-distance:0%;opacity:0}8%{opacity:1}92%{opacity:1}100%{offset-distance:100%;opacity:0}}
+.meet{position:absolute;left:390px;top:113px;transform:translate(-50%,-50%);display:flex;align-items:center;gap:6px}
+.meet .agent{animation:pop .4s var(--d) both}
+.fit{position:absolute;left:390px;top:68px;transform:translateX(-50%)}
+.fit .chip{animation:pop .4s 4.4s both}
+.deal{position:absolute;left:280px;top:408px;width:240px;padding:10px 12px;display:flex;align-items:center;gap:10px}
+.lbl{position:absolute;font-size:10px;font-weight:700;color:var(--blue);background:#fff;border:1px solid var(--blue-100);padding:2px 7px;border-radius:6px}
+</style></head>
+<body data-ms="9000" style="--T:9s"><div class="stage">
+  <div class="cap in" style="--d:.2s"><div class="eyebrow">US ↔ India corridor · now live</div>
+    <h2>Sell to the <em>world</em>. Through your broker.</h2></div>
+  <img class="map" src="worldmap.svg">
+  <svg class="ov" viewBox="0 0 800 500">
+    <path class="arc glow" d="M216 174 Q390 20 564 236"/>
+    <path class="arc main" d="M216 174 Q390 20 564 236"/>
+    <path class="arc next" style="--d:5.4s" d="M216 174 Q463 0 710 187"/>
+    <path class="arc next" style="--d:5.7s" d="M216 174 Q330 160 422 143"/>
+  </svg>
+  <div class="pin us"></div><div class="pin in"></div><div class="pin jp"></div><div class="pin eu"></div>
+  <div class="lbl fi" style="left:690px;top:150px;--d:5.8s">Next · Japan</div>
+  <div class="lbl fi" style="left:436px;top:150px;--d:6.1s">Next · Europe</div>
+
+  <div class="card party seller in" style="--d:.7s"><div class="agent seller sm">S</div>
+    <div><div class="t">“Project Falcon”</div><div class="s">Ohio · Precision machining<br>$28M revenue · via sell-side broker</div></div></div>
+  <div class="card party buyer in" style="--d:2.4s"><div class="agent buyer sm">B</div>
+    <div><div class="t">Family office · Mumbai</div><div class="s">Thesis: US industrials<br>$10–40M revenue · majority stake</div></div></div>
+
+  <div class="card teaser"><b>Anonymous teaser</b><div class="bars"><div class="bar-skel" style="width:90%"></div><div class="bar-skel" style="width:70%"></div></div></div>
+
+  <div class="meet"><div class="agent seller sm" style="--d:3.9s">S</div><div class="agent buyer sm" style="--d:4.05s">B</div></div>
+  <div class="fit"><span class="chip g">✓ Agent-to-agent fit · 92%</span></div>
+
+  <div class="card deal pop" style="--d:5s"><span class="tick">✓</span>
+    <div><div class="b" style="font-size:12px">NDA signed · Data room open</div><div class="muted" style="font-size:10.5px">Both sides opted in · names revealed</div></div></div>
+</div></body></html>
