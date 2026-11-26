@@ -2,8 +2,9 @@
 Page files start with a front-matter block:  <!--title: ... | desc: ...-->"""
 import pathlib, re
 ROOT = pathlib.Path(__file__).parent
-NAV = [("index", "Home"), ("brokers", "For Brokers"), ("buyers", "For Buyers & PE"),
-       ("providers", "For Providers"), ("how-it-works", "How it works"), ("faq", "FAQ")]
+NAV = [("sell-side-brokers", "Sell-side brokers"), ("buy-side-brokers", "Buy-side brokers"),
+       ("strategic-buyers", "Strategic buyers"), ("private-equity", "Private equity"),
+       ("how-it-works", "How it works"), ("faq", "FAQ")]
 LAYOUT = """<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{title}</title><meta name="description" content="{desc}">
@@ -16,7 +17,7 @@ LAYOUT = """<!doctype html>
   <a class="brand" href="index.html"><img class="mark" src="assets/img/logo.svg" alt=""><span>BORDERLESS <b>DEALS</b><small>Cross-border M&amp;A, agent-run</small></span></a>
   <nav class="links" aria-label="Main">{links}</nav>
   <button class="menu" aria-expanded="false" aria-label="Open menu">Menu</button>
-  <a class="btn btn-primary" href="brokers.html#join">Join as a broker</a>
+  <a class="btn btn-primary" href="sell-side-brokers.html#join">List a mandate</a>
 </div></header>
 <main>
 {body}
@@ -25,9 +26,9 @@ LAYOUT = """<!doctype html>
   <div class="cols">
     <div><a class="brand" href="index.html"><img class="mark" src="assets/img/logo.svg" alt=""><span>BORDERLESS <b>DEALS</b></span></a>
       <p style="color:var(--ink-3);margin-top:12px;max-width:320px">AI-enabled platform for cross-border M&amp;A. US companies, buyers worldwide.</p></div>
-    <div><h4>Who it's for</h4><a href="brokers.html">Brokers</a><a href="buyers.html">Buyers &amp; private equity</a><a href="providers.html">Service providers</a></div>
+    <div><h4>Who it's for</h4><a href="sell-side-brokers.html">Sell-side brokers</a><a href="buy-side-brokers.html">Buy-side brokers</a><a href="strategic-buyers.html">Strategic buyers</a><a href="private-equity.html">Private equity</a><a href="providers.html">Service providers</a><a href="faq.html#sellers">Business owners</a></div>
     <div><h4>Platform</h4><a href="how-it-works.html">How it works</a><a href="how-it-works.html#gates">Stage gates</a><a href="how-it-works.html#trust">Trust &amp; confidentiality</a></div>
-    <div><h4>Company</h4><a href="faq.html">FAQ</a><a href="brokers.html#join">Join</a><a href="index.html#join">Contact</a></div>
+    <div><h4>Company</h4><a href="faq.html">FAQ</a><a href="index.html#join">Join</a><a href="index.html#join">Contact</a></div>
   </div>
   <div class="legal"><span>&copy; 2026 Borderless Deals. Built on deal-execution technology from AgenticPM.</span>
   <span>Borderless Deals is a technology and marketplace platform, not a broker-dealer. Brokers on the platform hold their own licences.</span></div>
@@ -51,11 +52,11 @@ JOIN = """<section id="join"><div class="wrap"><div class="cta-band">
     <div class="thanks">Thank you. We'll be in touch about your first mandate.</div>
     <div class="fine">Four fields. No credit card.</div>
   </form></div></div></section>"""
-ROLES = ["Broker", "Business owner", "Buyer", "Private equity", "Service provider"]
+ROLES = ["Sell-side broker", "Buy-side broker", "Strategic buyer", "Private equity", "Business owner", "Service provider"]
 def join_html(attrs):
     a = dict(eyebrow="Founding brokers · free seat", headline="Sell to the world. Start with one mandate.",
              sub="Send one mandate. Your AI agent drafts the anonymous teaser and a list of likely buyers worldwide. Free for founding brokers.",
-             button="Send my mandate", role="Broker")
+             button="Send my mandate", role="Sell-side broker")
     a.update(attrs)
     a["options"] = "".join(f"<option{' selected' if r == a['role'] else ''}>{r}</option>" for r in ROLES)
     return JOIN.format(**a)

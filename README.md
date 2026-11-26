@@ -6,7 +6,7 @@ Marketing site for **Borderless Deals**, the AI-enabled platform for cross-borde
 |---|---|---|
 | 1 | Website outline: sections, content, visuals, design guidance and Hormozi offer logic | [`docs/website-outline.md`](docs/website-outline.md) |
 | 2 | Animated app-schematic visuals (GIF), one per section | Sources in `visuals/src/*.html`, output in `site/assets/gif/*.gif` |
-| 3 | Simple static website (6 pages) | `site/` |
+| 3 | Static website: home, four persona pages (sell-side brokers, buy-side brokers, strategic buyers, private equity), providers, how it works, FAQ | `site/` |
 
 ## View the site
 

@@ -1,0 +1,56 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+.p1{position:absolute;inset:0;animation:fadeOut .45s ease 5.2s forwards}
+.client{position:absolute;left:24px;width:296px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start}
+.client .nm{font-size:18px;font-weight:700;line-height:1.25}
+.client .th{font-size:16px;color:var(--ink-3);margin-top:3px}
+.client .m{margin-top:8px}
+.win.scan{left:344px;top:26px;width:432px;height:448px}
+.scan .body{padding:14px 16px;position:relative}
+.scan .hd{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.trow{position:relative;display:flex;align-items:center;gap:10px;padding:12px 12px;border:1px solid var(--line);border-radius:10px;margin-top:10px;background:#fff}
+.trow .tx{flex:1}
+.trow .tx b{display:block;font-size:17px}
+.trow .tx span{font-size:16px;color:var(--ink-3)}
+.lock{width:28px;height:28px;border-radius:8px;background:var(--saffron-50);color:#B45309;display:grid;place-items:center;font-size:14px;flex:none}
+.beam{position:absolute;left:12px;right:12px;height:70px;top:66px;border-radius:10px;background:rgba(31,79,224,.08);border:2px solid rgba(31,79,224,.35);
+  animation:beam 2.4s cubic-bezier(.5,0,.5,1) 1.1s both}
+@keyframes beam{0%{opacity:0;transform:translateY(0)}8%{opacity:1}25%{transform:translateY(0)}35%{transform:translateY(80px)}55%{transform:translateY(80px)}65%{transform:translateY(160px)}82%{transform:translateY(160px)}92%{opacity:1;transform:translateY(240px)}100%{opacity:0;transform:translateY(240px)}}
+.p2{position:absolute;left:90px;right:90px;top:64px;padding:22px 26px;animation:pop .5s cubic-bezier(.2,.7,.2,1) 5.5s both}
+.p2 .illus{position:absolute;top:-13px;right:20px}
+.p2 .hd{display:flex;align-items:center;gap:12px;padding-bottom:12px}
+.p2 .r{display:flex;align-items:center;gap:14px;padding:16px 0;border-top:1px solid var(--line)}
+.p2 .r .t22{flex:1}
+</style></head>
+<body data-ms="10000" style="--T:10s"><div class="stage">
+ <div class="p1">
+  <div class="card client in" style="top:26px;--d:.2s"><div class="agent buyer sm" style="flex:none">B</div>
+    <div><div class="nm">Corporate buyer · Europe</div><div class="th">US industrials · $10–40M revenue</div>
+    <div class="m"><span class="chip g lg pop" style="--d:1.9s">✓ 2 matches</span></div></div></div>
+  <div class="card client in" style="top:178px;--d:.35s"><div class="agent buyer sm" style="flex:none">B</div>
+    <div><div class="nm">Family business · Japan</div><div class="th">US food brands · $10–40M revenue</div>
+    <div class="m"><span class="chip g lg pop" style="--d:2.6s">✓ 1 match</span></div></div></div>
+  <div class="card client in" style="top:330px;--d:.5s"><div class="agent pe sm" style="flex:none">PE</div>
+    <div><div class="nm">PE fund · Middle East</div><div class="th">US software · $10–40M revenue</div>
+    <div class="m"><span class="chip g lg pop" style="--d:3.3s">✓ 1 match</span></div></div></div>
+
+  <div class="win scan in" style="--d:.3s">
+    <div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="logo"><span class="mk"></span>BORDERLESS <b>DEALS</b></div><span class="illus" style="margin-left:auto">Illustrative</span></div>
+    <div class="body">
+      <div class="hd"><div class="agent ai sm">AI</div><span class="t18 b">Your AI agent · every client's thesis</span></div>
+      <div class="beam"></div>
+      <div class="trow in" style="--d:.6s"><span class="lock">🔒</span><div class="tx"><b>Precision machining</b><span>US Midwest · $10–40M</span></div><span class="chip lg pop" style="--d:1.6s">→ Europe</span></div>
+      <div class="trow in" style="--d:.75s"><span class="lock">🔒</span><div class="tx"><b>Food ingredients</b><span>US South · $10–40M</span></div><span class="chip lg pop" style="--d:2.4s">→ Japan</span></div>
+      <div class="trow in" style="--d:.9s"><span class="lock">🔒</span><div class="tx"><b>Industrial software</b><span>US West · $10–40M</span></div><span class="chip lg pop" style="--d:3.1s">→ Middle East</span></div>
+      <div class="trow in" style="--d:1.05s"><span class="lock">🔒</span><div class="tx"><b>Specialty packaging</b><span>US Midwest · $10–40M</span></div><span class="chip lg pop" style="--d:3.6s">→ Europe</span></div>
+    </div>
+  </div>
+ </div>
+
+ <div class="card p2"><span class="illus">Illustrative</span>
+   <div class="hd"><div class="agent ai">AI</div><span class="t22" style="flex:1">One view · every client · every live deal</span></div>
+   <div class="r in" style="--d:5.9s"><div class="agent buyer sm" style="flex:none">B</div><span class="t22">Corporate buyer · Europe</span><span class="chip lg">LOI</span></div>
+   <div class="r in" style="--d:6.15s"><div class="agent buyer sm" style="flex:none">B</div><span class="t22">Family business · Japan</span><span class="chip lg t">NDA</span></div>
+   <div class="r in" style="--d:6.4s"><div class="agent pe sm" style="flex:none">PE</div><span class="t22">PE fund · Middle East</span><span class="chip lg s">Teaser</span></div>
+ </div>
+</div></body></html>

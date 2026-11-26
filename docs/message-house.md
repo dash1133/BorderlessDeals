@@ -185,3 +185,25 @@ Support line, used once in the hero:
 1. **"Free seat for founding brokers"**: the memo supports free seats at launch (p. 35) but also says "a listing fee always" (p. 34).
 2. **Teaser discovery inside Claude and ChatGPT**: state it as live only once the plugins ship (p. 38).
 3. **Every figure** must be checked against its full source (memo p. 51).
+
+---
+
+## Persona pages (v4)
+
+The home page keeps the core message and the sell-side reader. Right under the hero, a **"Choose your seat"** router links to four persona pages. Each persona page has its own reader, its own headline and its own hero visual, and follows the same template:
+
+> Hero (the persona's dream outcome) → Sound familiar? (three pains) → What your AI agent does → How it works for you → Offer or promise → FAQ for this persona → Join (role preselected)
+
+| Page | Reader | H1 | Hero visual | Memo source |
+|---|---|---|---|---|
+| `sell-side-brokers.html` | Sell-side brokers | Take every mandate to buyers worldwide. | `hero-corridor` | pp. 10–11, 20, 47 |
+| `buy-side-brokers.html` | Buy-side brokers | Find US companies for every client, at once. | `buyside-book` (new) | pp. 10, 20–22 |
+| `strategic-buyers.html` | Corporate development and M&A teams | Buy in the US without navigating it alone. | `strategic-mandate` (new) | pp. 22–23, 30, 47–48 |
+| `private-equity.html` | PE funds, independent sponsors, search funds | Exit to buyers worldwide. Add on from anywhere. | `pe-exit-addon` (new) | pp. 23–25, 48 |
+
+**Rules for persona pages:**
+- One reader per page; every line is written to that reader.
+- Same vocabulary and banned claims as the home page.
+- No single launch country is named; buyers are worldwide.
+- Foreign co-investment through brokers is a later idea that needs a legal check (memo p. 24), so it is **not** shown on the PE page.
+- Service providers keep `providers.html`. Business owners are routed to the FAQ, since at launch they sell through a broker.

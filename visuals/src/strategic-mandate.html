@@ -1,0 +1,46 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+.bcard{position:absolute;left:24px;top:24px;width:372px;padding:14px 16px;display:flex;gap:12px;align-items:center}
+.mandate{position:absolute;left:24px;top:104px;width:372px;padding:16px 18px;border:2px solid var(--blue);box-shadow:0 10px 28px rgba(31,79,224,.14)}
+.mandate .top{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.mandate .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.subs{position:absolute;left:424px;top:24px;width:352px;padding:14px 16px}
+.subs .hd{display:flex;align-items:center;gap:8px;color:var(--ink-3);font-weight:600;padding-bottom:6px}
+.subs .r{display:flex;align-items:center;gap:12px;padding:11px 0;border-top:1px solid var(--line)}
+.subs .r .t18{flex:1;font-weight:600}
+svg.ln{position:absolute;inset:0;width:800px;height:500px;pointer-events:none}
+.ln path{fill:none;stroke:var(--teal);stroke-width:2.5;stroke-dasharray:6 6;opacity:0;animation:fadeIn .4s var(--d) both}
+.alert{position:absolute;left:24px;right:24px;top:330px;padding:16px 18px}
+.alert .r1{display:flex;align-items:center;gap:12px}
+.alert .r2{display:flex;align-items:center;gap:12px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+.arrow{font-size:22px;color:var(--ink-3);font-weight:700}
+</style></head>
+<body data-ms="10000" style="--T:10s"><div class="stage">
+  <div class="card bcard in" style="--d:.2s"><div class="agent buyer" style="flex:none">B</div>
+    <div><div class="t18 b">Corporate development team</div><div class="t16 muted">Strategic buyer · abroad</div></div></div>
+
+  <div class="card mandate pop" style="--d:.7s">
+    <div class="top"><span class="chip lg">Published mandate</span><span class="illus" style="margin-left:auto">Illustrative</span></div>
+    <div class="t16 muted">What we're looking for</div>
+    <div class="t22" style="margin-top:2px">US specialty manufacturers</div>
+    <div class="chips"><span class="chip k lg">$10–40M revenue</span><span class="chip k lg">Majority stake</span></div>
+  </div>
+
+  <svg class="ln" viewBox="0 0 800 500">
+    <path style="--d:1.6s" d="M396 180 C410 180 410 110 424 110"/>
+  </svg>
+
+  <div class="card subs in" style="--d:1.5s">
+    <div class="hd"><span class="t16">Brokers subscribed</span></div>
+    <div class="r in" style="--d:2.0s"><div class="agent broker sm" style="flex:none">SB</div><span class="t18">Sell-side broker · Ohio</span><span class="tick">✓</span></div>
+    <div class="r in" style="--d:2.45s"><div class="agent broker sm" style="flex:none">SB</div><span class="t18">Sell-side broker · Texas</span><span class="tick">✓</span></div>
+    <div class="r in" style="--d:2.9s"><div class="agent broker sm" style="flex:none">SB</div><span class="t18">Sell-side broker · California</span><span class="tick">✓</span></div>
+  </div>
+
+  <div class="card alert in" style="--d:4.0s">
+    <div class="r1"><div class="agent broker sm" style="flex:none">SB</div>
+      <span class="t22" style="flex:1">A fitting company just came to market</span><span class="chip t lg">From a broker's agent</span></div>
+    <div class="r2 in" style="--d:5.0s"><span class="arrow">→</span><div class="agent ai sm" style="flex:none">AI</div>
+      <span class="t18" style="flex:1">Your AI agent</span><span class="chip g lg pop" style="--d:5.4s">Checks fit · flags screening risk early</span></div>
+  </div>
+</div></body></html>
