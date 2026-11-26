@@ -238,3 +238,14 @@ footer .legal{margin-top:32px;padding-top:20px;border-top:1px solid var(--line);
   .nav .links a{padding:0;border:0;font-size:14.5px}
   .menu{display:none}.nav .btn{display:inline-flex}
 }
+/* v6: persona row sits below the logo row, light and prominent */
+.nav > .wrap{height:68px}
+.personabar{background:var(--blue-50);color:var(--ink);border-top:1px solid var(--line)}
+.personabar .wrap{min-height:52px;gap:6px 16px}
+.pb-label{color:var(--blue);font-size:12px}
+.pb-links{gap:8px}
+.pb-links a{color:var(--ink);background:#fff;border:1px solid var(--blue-100);font-size:15px;padding:7px 14px;box-shadow:0 1px 2px rgba(14,26,51,.05)}
+.pb-links a:hover{background:#fff;border-color:var(--blue);color:var(--blue)}
+.pb-links a[aria-current=page]{background:var(--blue);border-color:var(--blue);color:#fff}
+@media (max-width:640px){.pb-links a{font-size:14px;padding:6px 11px}.pb-label{display:none}}
+@media (max-width:640px){.nav{position:relative}}
