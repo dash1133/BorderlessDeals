@@ -1,6 +1,6 @@
 # Borderless Deals: website
 
-Marketing site for **Borderless Deals**, the agent-run marketplace for cross-border M&A, launching with the US–India corridor. The site is built from *Borderless Deals: Concept Memo (Draft v2)*.
+Marketing site for **Borderless Deals**, the AI-enabled platform for cross-border M&A: US companies, buyers worldwide. The site is built from *Borderless Deals: Concept Memo (Draft v2)*.
 
 | Pass | What | Where |
 |---|---|---|

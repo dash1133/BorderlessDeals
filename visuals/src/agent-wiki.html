@@ -3,57 +3,61 @@
 .page{left:24px;top:24px;width:430px;height:452px;animation:fadeUp .5s .1s both}
 .page .bar{height:48px;padding:0 14px}
 .page .title{font-size:14px;color:var(--ink-2)}
-.lang{margin-left:auto;display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;font-size:14px;font-weight:700}
-.lang span{padding:5px 10px;position:relative}
-.lang .en{animation:onoff 4.2s .2s both}
-.lang .hi{font-family:"FreeSans",Inter,sans-serif;animation:offon .3s 4.2s both}
-@keyframes onoff{0%,99%{background:var(--blue);color:#fff}100%{background:#fff;color:var(--ink-3)}}
-@keyframes offon{from{background:#fff;color:var(--ink-3)}to{background:var(--blue);color:#fff}}
+/* language toggle: EN → ES → 日本語 → DE */
+.lang{margin-left:auto;display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;font-size:13px;font-weight:700}
+.lang span{padding:5px 8px;background:#fff;color:var(--ink-3)}
+@keyframes on{from{background:#fff;color:var(--ink-3)}to{background:var(--blue);color:#fff}}
+@keyframes off{from{background:var(--blue);color:#fff}to{background:#fff;color:var(--ink-3)}}
+.lang .s0{animation:on .01s 0s both,off .2s 2.9s forwards}
+.lang .s1{animation:on .2s 2.9s both,off .2s 4.9s forwards}
+.lang .s2{animation:on .2s 4.9s both,off .2s 6.9s forwards;font-family:Inter,"WenQuanYi Zen Hei",sans-serif}
+.lang .s3{animation:on .2s 6.9s both}
+/* translatable slots: four stacked spans, one visible at a time */
+.sw{position:relative;display:block}
+.sw > span{position:absolute;left:0;top:0;white-space:nowrap}
+.sw .l0{animation:fadeIn .3s .5s both,fadeOut .2s 2.9s forwards}
+.sw .l1{animation:fadeIn .3s 3.1s both,fadeOut .2s 4.9s forwards}
+.sw .l2{animation:fadeIn .3s 5.1s both,fadeOut .2s 6.9s forwards;font-family:Inter,"WenQuanYi Zen Hei",sans-serif}
+.sw .l3{animation:fadeIn .3s 7.1s both}
 .body{padding:18px 24px;display:grid;gap:12px}
-.h{position:relative;height:40px}
-.h > div{position:absolute;left:0;top:0;white-space:nowrap}
-.h .en{animation:fadeIn .4s .5s both,fadeOut .25s 4.1s forwards}
-.h .hi,.sw2 .hi{font-family:"FreeSans",Inter,sans-serif;animation:fadeIn .3s 4.3s both}
-.h .hi{font-size:20px;color:var(--ink-3)}
-.h{height:26px;margin-top:-8px}
-.sw2{position:relative;height:18px}.sw2 > span{position:absolute;left:0;top:0;white-space:nowrap}
-.sw2 .en{animation:fadeIn .3s .5s both,fadeOut .25s 4.1s forwards}
-.sw2 .hi{font-size:15px}
-.lbl{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+.sub{height:24px;margin-top:-6px;color:var(--ink-3)}
+.lbl{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);height:18px}
+.biz{height:26px;margin-top:4px}
 .fin{display:grid;gap:10px}
-.fin div{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.fin > div{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.fin .sw{width:200px;height:22px}
 .blur{width:120px;height:16px;border-radius:5px;background:linear-gradient(90deg,#C9D3EA,#E3E9F5);filter:blur(1.5px)}
 .drafted{display:flex;align-items:center;gap:10px}
-.qa{position:absolute;left:472px;top:24px;width:304px;height:452px;padding:20px;display:flex;flex-direction:column;gap:14px;animation:fadeUp .5s .3s both}
+.qa{position:absolute;left:472px;top:24px;width:304px;height:452px;padding:20px;display:flex;flex-direction:column;gap:12px;animation:fadeUp .5s .3s both}
 .who{display:flex;align-items:center;gap:10px}
-.bub{padding:12px 14px;border-radius:12px;font-size:18px;line-height:1.3}
+.bub{padding:10px 12px;border-radius:12px;font-size:17px;line-height:1.3}
 .bub.q{background:var(--blue-50);border:1px solid var(--blue-100)}
 .bub.a{background:#fff;border:1px solid var(--line)}
 .esc{display:flex;flex-direction:column;gap:8px}
-.sw3,.sw4{position:relative;display:block;height:24px}.sw3 > span,.sw4 > span{position:absolute;left:0;top:0;white-space:nowrap}
-.sw4{width:190px;height:22px}
-.sw3 .en,.sw4 .en{animation:fadeIn .3s .5s both,fadeOut .25s 4.1s forwards}
-.sw3 .hi,.sw4 .hi{font-family:"FreeSans",Inter,sans-serif;animation:fadeIn .3s 4.3s both}
-.qa{gap:12px}.bub{font-size:17px;padding:10px 12px}
 .qa .chip.lg{white-space:normal;font-size:15px;line-height:1.3}
 </style></head>
-<body data-ms="10000" style="--T:10s"><div class="stage">
+<body data-ms="10500" style="--T:10.5s"><div class="stage">
 <div class="win page">
   <div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="title">Company page</div>
-    <div class="lang"><span class="en">EN</span><span class="hi">हिन्दी</span></div></div>
+    <div class="lang"><span class="s0">EN</span><span class="s1">ES</span><span class="s2">日本語</span><span class="s3">DE</span></div></div>
   <div class="body">
     <div class="t28 fi" style="font-size:32px;--d:.4s">Project Falcon</div>
-    <div class="h sw"><div class="en t18 muted">Company page</div><div class="hi">कंपनी पेज</div></div>
+    <div class="sw sub t18"><span class="l0">Company page</span><span class="l1">Página de la empresa</span><span class="l2">会社ページ</span><span class="l3">Unternehmensseite</span></div>
     <div class="in" style="--d:.7s"><span class="illus">Illustrative</span></div>
-    <div class="in" style="--d:1s"><div class="lbl sw2"><span class="en">Business</span><span class="hi">व्यवसाय</span></div><div class="sw3 t18" style="margin-top:4px"><span class="en">US industrial company · founder-owned</span><span class="hi">अमेरिकी औद्योगिक कंपनी · संस्थापक-स्वामित्व वाली</span></div></div>
-    <div class="in" style="--d:1.4s"><div class="lbl sw2"><span class="en">Financials</span><span class="hi">वित्तीय विवरण</span></div>
-      <div class="fin t16" style="margin-top:8px"><div><span class="sw4"><span class="en">Revenue</span><span class="hi">राजस्व</span></span><span class="blur"></span></div><div><span class="sw4"><span class="en">Adjusted EBITDA</span><span class="hi">समायोजित EBITDA</span></span><span class="blur"></span></div></div>
+    <div class="in" style="--d:1s">
+      <div class="sw lbl"><span class="l0">Business</span><span class="l1">Negocio</span><span class="l2">事業</span><span class="l3">Geschäft</span></div>
+      <div class="sw biz t18"><span class="l0">US industrial company</span><span class="l1">Empresa industrial de EE. UU.</span><span class="l2">米国の産業企業</span><span class="l3">US-Industrieunternehmen</span></div></div>
+    <div class="in" style="--d:1.4s">
+      <div class="sw lbl"><span class="l0">Financials</span><span class="l1">Finanzas</span><span class="l2">財務情報</span><span class="l3">Finanzen</span></div>
+      <div class="fin t16" style="margin-top:8px">
+        <div><span class="sw"><span class="l0">Revenue</span><span class="l1">Ingresos</span><span class="l2">売上高</span><span class="l3">Umsatz</span></span><span class="blur"></span></div>
+        <div><span class="sw"><span class="l0">Adjusted EBITDA</span><span class="l1">EBITDA ajustado</span><span class="l2">調整後EBITDA</span><span class="l3">Bereinigtes EBITDA</span></span><span class="blur"></span></div></div>
       <div style="margin-top:10px"><span class="chip lg k">Normalized · cited</span></div></div>
     <div class="drafted in" style="--d:1.9s"><div class="agent ai sm">AI</div><span class="t16 muted">Drafted by your AI agent</span></div>
   </div>
 </div>
 <div class="card qa">
-  <div class="who in" style="--d:1.6s"><div class="agent ai">AI</div><div class="t16"><b>Buyer's AI agent</b><br><span class="muted">India</span></div></div>
+  <div class="who in" style="--d:1.6s"><div class="agent ai">AI</div><div class="t16"><b>Buyer's AI agent</b><br><span class="muted">Buyer abroad</span></div></div>
   <div class="bub q in" style="--d:2.2s">What is customer concentration?</div>
   <div class="bub a in" style="--d:3.0s">Answered from the approved customer summary.
     <div style="margin-top:8px"><span class="chip lg g">✓ From approved information</span></div></div>

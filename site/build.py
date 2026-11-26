@@ -24,7 +24,7 @@ LAYOUT = """<!doctype html>
 <footer><div class="wrap">
   <div class="cols">
     <div><a class="brand" href="index.html"><img class="mark" src="assets/img/logo.svg" alt=""><span>BORDERLESS <b>DEALS</b></span></a>
-      <p style="color:var(--ink-3);margin-top:12px;max-width:320px">The agent-run marketplace for cross-border M&amp;A. Starting with the US&ndash;India corridor.</p></div>
+      <p style="color:var(--ink-3);margin-top:12px;max-width:320px">AI-enabled platform for cross-border M&amp;A. US companies, buyers worldwide.</p></div>
     <div><h4>Who it's for</h4><a href="brokers.html">Brokers</a><a href="buyers.html">Buyers &amp; private equity</a><a href="providers.html">Service providers</a></div>
     <div><h4>Platform</h4><a href="how-it-works.html">How it works</a><a href="how-it-works.html#gates">Stage gates</a><a href="how-it-works.html#trust">Trust &amp; confidentiality</a></div>
     <div><h4>Company</h4><a href="faq.html">FAQ</a><a href="brokers.html#join">Join</a><a href="index.html#join">Contact</a></div>
@@ -41,7 +41,7 @@ JOIN = """<section id="join"><div class="wrap"><div class="cta-band">
     <ul class="points" style="margin-top:18px"><li style="color:#C9D3EA">You keep your mandate, your client and your fee.</li>
     <li style="color:#C9D3EA">You or your broker decide what is shown, to whom, and when.</li>
     <li style="color:#C9D3EA">AI agents do the legwork. People make every decision.</li></ul>
-    <div class="join-visual"><img src="assets/gif/mandate-in.gif" loading="lazy" width="800" height="500" alt="One mandate goes in; an anonymous teaser and a list of likely buyer types in India come out."></div></div>
+    <div class="join-visual"><img src="assets/gif/mandate-in.gif" loading="lazy" width="800" height="500" alt="One mandate goes in; an anonymous teaser and a list of likely buyer types worldwide come out."></div></div>
   <form class="join" action="#" method="post">
     <label>Full name<input name="name" autocomplete="name" required></label>
     <label>Work email<input name="email" type="email" autocomplete="email" required></label>
@@ -53,8 +53,8 @@ JOIN = """<section id="join"><div class="wrap"><div class="cta-band">
   </form></div></div></section>"""
 ROLES = ["Broker", "Business owner", "Buyer", "Private equity", "Service provider"]
 def join_html(attrs):
-    a = dict(eyebrow="Founding brokers · US–India corridor", headline="Sell to the world. Start with one mandate.",
-             sub="Send one mandate. Your AI agent drafts the anonymous teaser and a list of likely buyers in India. Free for founding brokers in the US–India corridor.",
+    a = dict(eyebrow="Founding brokers · free seat", headline="Sell to the world. Start with one mandate.",
+             sub="Send one mandate. Your AI agent drafts the anonymous teaser and a list of likely buyers worldwide. Free for founding brokers.",
              button="Send my mandate", role="Broker")
     a.update(attrs)
     a["options"] = "".join(f"<option{' selected' if r == a['role'] else ''}>{r}</option>" for r in ROLES)
