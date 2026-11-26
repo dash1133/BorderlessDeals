@@ -12,7 +12,7 @@ svg.ov{position:absolute;left:0;top:0;width:800px;height:500px;overflow:visible}
 .party{position:absolute;width:262px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start}
 .party .agent{flex:none}
 .party.seller{left:20px;top:214px}
-.party.buyer{left:518px;top:262px}
+.party.buyer{left:500px;top:262px;width:280px}
 .teaser{position:absolute;left:0;top:0;offset-path:path('M216 154 Q390 0 564 216');offset-rotate:0deg;
   padding:7px 12px;font-size:16px;font-weight:700;white-space:nowrap;opacity:0;animation:travel 1.6s cubic-bezier(.5,0,.3,1) 1.1s both}
 @keyframes travel{0%{offset-distance:0%;opacity:0}10%{opacity:1}90%{opacity:1}100%{offset-distance:100%;opacity:0}}
@@ -20,7 +20,8 @@ svg.ov{position:absolute;left:0;top:0;width:800px;height:500px;overflow:visible}
 .meet .agent{animation:pop .4s var(--d) both}
 .ctr{position:absolute;left:400px;transform:translateX(-50%)}
 .ctr .chip{animation:pop .4s var(--d) both}
-.deal{position:absolute;left:400px;top:400px;transform:translateX(-50%);padding:14px 20px;display:flex;align-items:center;gap:12px;white-space:nowrap}
+.dealw{position:absolute;left:0;right:0;top:408px;display:flex;justify-content:center}
+.deal{padding:14px 20px;display:flex;align-items:center;gap:12px;white-space:nowrap}
 .deal .tick{width:28px;height:28px;font-size:16px}
 </style></head>
 <body data-ms="9000" style="--T:9s"><div class="stage">
@@ -40,7 +41,7 @@ svg.ov{position:absolute;left:0;top:0;width:800px;height:500px;overflow:visible}
 
   <div class="meet"><div class="agent ai" style="--d:2.6s">AI</div><div class="agent ai" style="--d:2.7s">AI</div></div>
   <div class="ctr" style="top:20px"><span class="chip g lg" style="--d:2.8s">✓ AI agents confirm fit</span></div>
-  <div class="ctr" style="top:330px"><span class="chip t lg" style="--d:3.6s">✓ KYC passed · broker approves</span></div>
+  <div class="ctr" style="top:150px"><span class="chip t lg" style="--d:3.6s">✓ KYC passed · broker approves</span></div>
 
-  <div class="card deal pop" style="--d:4.4s"><span class="tick">✓</span><span class="t22">NDA signed · names revealed</span></div>
+  <div class="dealw"><div class="card deal pop" style="--d:4.4s"><span class="tick">✓</span><span class="t22">NDA signed · names revealed</span></div></div>
 </div></body></html>

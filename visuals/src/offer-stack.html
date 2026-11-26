@@ -1,52 +1,30 @@
 <!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
 <style>
-.stack{position:absolute;left:28px;top:92px;width:452px;display:grid;gap:6px}
-.item{display:flex;align-items:center;gap:10px;padding:8px 12px;height:40px;font-size:12px;font-weight:600;
-  animation:land .5s cubic-bezier(.2,.7,.2,1) var(--d) both}
-.item .n{width:20px;height:20px;border-radius:6px;background:var(--blue-50);color:var(--blue);display:grid;place-items:center;font-size:10px;font-weight:800;flex:none}
-.item .tick{margin-left:auto;flex:none;animation:pop .35s calc(var(--d) + .35s) both}
-.item small{display:block;font-weight:500;color:var(--ink-3);font-size:10px;margin-top:1px}
-@keyframes land{from{opacity:0;transform:translateY(-26px) scale(.98)}to{opacity:1;transform:none}}
-.price{position:absolute;left:508px;top:150px;width:264px;height:170px;perspective:900px}
-.face{position:absolute;inset:0;border-radius:14px;padding:18px;display:flex;flex-direction:column;justify-content:center;backface-visibility:hidden}
-.front{background:#fff;border:1px dashed #C9D3E8;animation:fadeIn .5s 1s both,flipOut .45s ease-in 6.3s forwards}
-.back{background:var(--blue);color:#fff;box-shadow:0 12px 30px rgba(31,79,224,.35);transform:rotateY(-90deg);animation:flipIn .45s ease-out 6.75s forwards}
-@keyframes flipOut{to{transform:rotateY(90deg)}}
-@keyframes flipIn{to{transform:rotateY(0)}}
-.front .k{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:700}
-.front .v{font-size:19px;font-weight:700;margin-top:6px;color:var(--ink-2)}
-.front .strike{font-size:11px;color:var(--ink-3);margin-top:6px}
-.back .k{font-size:10px;letter-spacing:.1em;text-transform:uppercase;opacity:.85;font-weight:700}
-.back .v{font-size:40px;font-weight:800;letter-spacing:-.02em;margin-top:2px;line-height:1}
-.back .v span{font-size:16px;font-weight:600;opacity:.9;letter-spacing:0}
-.back .s{font-size:11px;opacity:.9;margin-top:8px}
-.guar{position:absolute;left:508px;top:338px;width:264px;padding:12px 14px;font-size:11px}
-.guar .h{font-weight:700;font-size:12px;display:flex;gap:7px;align-items:center;margin-bottom:5px}
-.shield{width:16px;height:18px;background:var(--green);clip-path:polygon(50% 0,100% 18%,100% 55%,50% 100%,0 55%,0 18%);flex:none}
-.count{position:absolute;left:508px;top:110px;font-size:10.5px}.c1{animation:fadeIn .4s 1s both,fadeOut .3s 6.3s forwards}.c2{opacity:0;animation:fadeIn .4s 6.8s forwards}
+.list{position:absolute;left:32px;top:32px;width:500px;display:grid;gap:12px}
+.item{display:flex;align-items:center;gap:14px;padding:14px 18px;min-height:60px}
+.item .tick{width:30px;height:30px;font-size:17px;flex:none}
+.item .tick{animation:pop .35s calc(var(--d) + .25s) both}
+.price{position:absolute;left:552px;top:32px;width:216px;height:276px;border-radius:16px;background:var(--blue);color:#fff;
+  padding:24px 20px;display:flex;flex-direction:column;justify-content:center;box-shadow:0 16px 40px rgba(31,79,224,.3)}
+.price .eb{font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;opacity:.85}
+.price .big{font-size:34px;white-space:nowrap;font-weight:800;letter-spacing:-.02em;line-height:1.05;margin:12px 0}
+.price .sub{font-size:18px;opacity:.9}
+.promise{position:absolute;left:32px;right:32px;top:336px;bottom:32px;border-radius:14px;background:var(--green-50);
+  display:flex;align-items:center;gap:16px;padding:0 24px;color:#14532D}
+.promise .seal{width:44px;height:44px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:800;font-size:22px;flex:none}
 </style></head>
-<body data-ms="10000" style="--T:10s"><div class="stage">
-  <div class="cap in" style="--d:.2s"><div class="eyebrow">The founding broker offer</div>
-    <h2>Take every mandate <em>global</em>.</h2></div>
-
-  <div class="stack">
-    <div class="card item" style="--d:.7s"><span class="n">1</span><div>Free founding seat<small>US–India corridor</small></div><span class="tick">✓</span></div>
-    <div class="card item" style="--d:1.25s"><span class="n">2</span><div>Agent builds your wiki, teaser and buyer list<small>Useful on day one, before the network is full</small></div><span class="tick">✓</span></div>
-    <div class="card item" style="--d:1.8s"><span class="n">3</span><div>Global buyer reach<small>Without a global network</small></div><span class="tick">✓</span></div>
-    <div class="card item" style="--d:2.35s"><span class="n">4</span><div>Teasers published in Claude, ChatGPT and Google<small>Discovery where buyers already search</small></div><span class="tick">✓</span></div>
-    <div class="card item" style="--d:2.9s"><span class="n">5</span><div>Stage-gate checks from the mandate onward<small>Deal-killers surface early, not after exclusivity</small></div><span class="tick">✓</span></div>
-    <div class="card item" style="--d:3.45s"><span class="n">6</span><div>Vetted cross-border providers on call<small>Legal · tax · valuation · financing</small></div><span class="tick">✓</span></div>
-    <div class="card item" style="--d:4s"><span class="n">7</span><div>Ratings and closed-deal badges<small>Reputation buyers can see</small></div><span class="tick">✓</span></div>
-    <div class="card item" style="--d:4.55s"><span class="n">8</span><div>One system for domestic and cross-border<small>Every mandate, one process</small></div><span class="tick">✓</span></div>
+<body data-ms="9000" style="--T:9s"><div class="stage">
+  <div class="price pop" style="--d:.4s">
+    <div class="eb">Founding broker</div>
+    <div class="big">Free seat</div>
+    <div class="sub">US–India corridor</div>
   </div>
-
-  <div class="count"><span class="chip k c1">What it would take on your own</span></div><div class="count"><span class="chip g c2">With Borderless Deals</span></div>
-  <div class="price">
-    <div class="face front"><div class="k">Global network</div><div class="v">Out of reach</div>
-      <div class="strike">Desks in every market · advisers in every country</div></div>
-    <div class="face back"><div class="k">Founding broker</div><div class="v">$0 <span>to join</span></div>
-      <div class="s">Free seat · single-player value from day one</div></div>
+  <div class="list">
+    <div class="card item sr" style="--d:.9s"><span class="tick">✓</span><span class="t22">Free seat in the US–India corridor</span></div>
+    <div class="card item sr" style="--d:1.4s"><span class="tick">✓</span><span class="t22">AI agent drafts teaser and buyer list</span></div>
+    <div class="card item sr" style="--d:1.9s"><span class="tick">✓</span><span class="t22">Ratings and closed-deal record</span></div>
+    <div class="card item sr" style="--d:2.4s"><span class="tick">✓</span><span class="t22">One system for every mandate</span></div>
   </div>
-  <div class="card guar in" style="--d:7.4s"><div class="h"><span class="shield"></span>Our promise to brokers</div>
-    <div class="muted">You keep your mandate, your client and your fee. We never take a percentage of your deal.</div></div>
+  <div class="promise in" style="--d:3.2s"><span class="seal">✓</span>
+    <span class="t22">You keep your mandate, client and fee. No percentage of your deal.</span></div>
 </div></body></html>

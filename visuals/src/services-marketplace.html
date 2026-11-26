@@ -1,106 +1,51 @@
 <!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
 <style>
-.win.main{left:28px;top:80px;width:744px;height:400px;animation:fadeUp .5s .3s both}
-.steps{position:absolute;left:16px;top:44px;display:flex;gap:6px}
-.step{position:relative;font-size:10px;font-weight:700;padding:4px 9px;border-radius:999px;background:#F1F4FA;color:var(--ink-3);overflow:hidden}
-.step::after{content:attr(data-l);position:absolute;inset:0;padding:4px 9px;background:var(--blue);color:#fff;border-radius:999px;animation:fadeIn .25s var(--d) both}
-.req{position:absolute;left:16px;top:76px;width:300px;padding:14px}
-.req .h{display:flex;align-items:center;gap:8px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:700}
-.req .q{font-size:13px;font-weight:700;line-height:1.33;margin:9px 0}
-.req .meta{display:flex;flex-wrap:wrap;gap:5px}
-.req .by{margin-top:12px;padding-top:10px;border-top:1px solid #F0F3FA;font-size:10.5px;color:var(--ink-3);display:flex;align-items:center;gap:8px}
-.reading{position:absolute;left:18px;top:256px;width:300px;font-size:10.5px;color:var(--ink-3);display:flex;align-items:center;gap:8px}
-.reading .sp{width:12px;height:12px;border-radius:50%;border:2px solid var(--blue-100);border-top-color:var(--blue);animation:spin .8s linear infinite}
-.bids{position:absolute;left:334px;top:76px;width:394px}
-.bids h5{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px;display:flex;justify-content:space-between}
-.bid{position:relative;display:flex;gap:10px;align-items:center;padding:7px 11px;margin-bottom:7px}
-.bid .agent.sm{width:28px;height:28px}
-.bid .n{font-weight:700;font-size:11.5px}
-.bid .s{font-size:10px;color:var(--ink-3);margin-top:2px}
-.bid .stars{color:var(--saffron);letter-spacing:1px;font-size:10px}
-.bid .pr{margin-left:auto;text-align:right;font-size:10px;color:var(--ink-3)}
-.bid .pr b{display:block;font-size:12.5px;color:var(--ink)}
-.bid .fit{position:absolute;right:66px;top:-8px}
-.best{position:absolute;inset:-2px;border:2px solid var(--blue);border-radius:11px;box-shadow:0 0 0 4px rgba(31,79,224,.12);animation:fadeIn .3s var(--d) both;pointer-events:none}
-.hire{position:absolute;right:80px;top:50%;transform:translateY(-50%)}
-.btn{display:inline-block;font-size:10.5px;font-weight:700;padding:5px 10px;border-radius:7px;background:var(--blue);color:#fff}
-.btn.ok{background:var(--green);position:absolute;left:0;top:0;white-space:nowrap}
-.contract{position:absolute;left:334px;top:272px;width:394px;padding:10px 12px;display:flex;align-items:center;gap:8px;font-size:10.5px}
-.room{position:absolute;left:16px;top:280px;width:300px;padding:10px 12px}
-.room .h{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:700;display:flex;justify-content:space-between}
-.files{margin-top:8px;display:grid;gap:5px}
-.file{display:flex;align-items:center;gap:7px;font-size:10.5px}
-.file .ic{width:16px;height:20px;border-radius:3px;background:var(--blue-50);border:1px solid var(--blue-100)}
-.cnt{position:relative;display:inline-block;width:46px;text-align:right}
-.cnt span{position:absolute;right:0}
-.fly{position:absolute;left:0;top:0;offset-path:path('M540 100 Q400 220 40 352');offset-rotate:0deg;width:120px;padding:6px 8px;font-size:9.5px;display:flex;gap:6px;align-items:center;
-  animation:flyd 1s cubic-bezier(.5,0,.3,1) 6.1s both}
-@keyframes flyd{0%{offset-distance:0%;opacity:0}10%{opacity:1}88%{opacity:1}100%{offset-distance:100%;opacity:0}}
-.review{position:absolute;left:334px;top:320px;width:394px;padding:9px 12px;display:flex;align-items:center;gap:10px;font-size:10.5px}
+.req{position:absolute;left:32px;top:32px;width:356px;padding:20px 22px}
+.req .t22{margin-top:12px}
+.req .meta{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
+.room{position:absolute;left:32px;top:276px;width:356px;bottom:32px;padding:18px 22px}
+.room .hd{display:flex;align-items:center;gap:10px}
+.file{display:flex;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--line);margin-top:10px}
+.file .ico{width:26px;height:32px;border-radius:4px;background:#E8EDF7;flex:none;position:relative}
+.file .ico::after{content:"";position:absolute;right:0;top:0;border-left:8px solid #D2DAEA;border-bottom:8px solid #D2DAEA;border-top:8px solid #fff;border-right:8px solid #fff}
+.file.new{animation:fadeUp .4s 5.2s both}
+.file.new .ico{background:var(--violet-50)}
+.props{position:absolute;left:412px;top:32px;width:356px}
+.props .lab{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+.bid{display:flex;align-items:center;gap:14px;padding:14px 16px;margin-bottom:12px;position:relative}
+.bid .skel{display:grid;gap:6px;margin-top:8px}
+.bid .agent{flex:none}
+.pick{position:absolute;inset:-2px;border:3px solid var(--blue);border-radius:12px;animation:fadeIn .3s 3.1s both;pointer-events:none}
+.hired{position:absolute;right:12px;top:12px}
+.verdict{position:absolute;left:412px;top:392px;width:356px;padding:14px 16px;display:flex;align-items:center;gap:12px}
+.fly{position:absolute;left:0;top:0;offset-path:path('M560 100 C 500 250 330 330 200 420');offset-rotate:0deg;opacity:0;animation:flyDoc 1s cubic-bezier(.5,0,.3,1) 4.3s both}
+@keyframes flyDoc{0%{offset-distance:0%;opacity:0}10%{opacity:1}85%{opacity:1}100%{offset-distance:100%;opacity:0}}
 </style></head>
 <body data-ms="9500" style="--T:9.5s"><div class="stage">
-  <div class="cap in" style="--d:.15s"><div class="eyebrow">Upwork for deal services</div>
-    <h2>Float a requirement. <em>Vetted providers bid.</em> Work lands in the deal room.</h2></div>
-
-  <div class="win main">
-    <div class="bar"><div class="dots"><i></i><i></i><i></i></div>
-      <div class="logo"><span class="mk"></span>BORDERLESS <b>DEALS</b></div>
-      <div class="title">· Services marketplace</div>
-      <div class="tabs"><span class="tab">Directory</span><span class="tab">Discovery</span><span class="tab on">Services</span></div></div>
-
-    <div class="steps">
-      <span class="step" data-l="1 Float" style="--d:.8s">1 Float</span>
-      <span class="step" data-l="2 Apply" style="--d:1.8s">2 Apply</span>
-      <span class="step" data-l="3 Invite" style="--d:2.6s">3 Invite</span>
-      <span class="step" data-l="4 Shortlist" style="--d:3.4s">4 Shortlist</span>
-      <span class="step" data-l="5 Contract" style="--d:4.8s">5 Contract</span>
-      <span class="step" data-l="6 Deliver" style="--d:6.1s">6 Deliver</span>
-      <span class="step" data-l="7 Review" style="--d:7.2s">7 Review</span>
-    </div>
-
-    <div class="card req in" style="--d:.8s">
-      <div class="h"><span class="chip">Requirement</span>Floated · buyer's agent</div>
-      <div class="q">US tax structuring + state licensing for a Pune family business acquiring an Ohio manufacturer</div>
-      <div class="meta"><span class="chip k">Taxation</span><span class="chip k">Legal</span><span class="chip s">US ↔ India</span><span class="chip k">3 weeks</span></div>
-      <div class="by"><span class="agent buyer sm" style="width:20px;height:20px;font-size:8px">B</span>Buy-side broker · Mumbai · Project Falcon</div>
-    </div>
-    <div class="reading" style="animation:fadeUp .5s 1.5s both,fadeOut .3s 3.3s forwards"><span class="sp"></span>Provider agents reading the requirement…</div>
-    <div class="reading in" style="--d:3.4s"><span class="tick" style="width:13px;height:13px;font-size:8px">✓</span>Agent compared scope, price and track record</div>
-
-    <div class="bids">
-      <h5 class="fi" style="--d:1.7s"><span>Proposals</span><span>Scope · price · timeline</span></h5>
-      <div class="card bid sl" style="--d:1.9s"><span class="best" style="--d:3.9s"></span>
-        <span class="agent provider sm">P</span>
-        <div><div class="n">Cross-border tax counsel · Ohio</div><div class="s"><span class="stars">★★★★★</span> 4.9 · 12 closed US–India deals</div></div>
-        <div class="pr"><b>$18k</b>2.5 weeks</div>
-        <span class="fit"><span class="chip g pop" style="--d:3.5s">Fit 94</span></span>
-        <span class="hire"><span class="btn pop" style="--d:4.2s">Hire</span><span class="btn ok pop" style="--d:4.8s">Hired ✓</span></span></div>
-      <div class="card bid sl" style="--d:2.35s">
-        <span class="agent provider sm">P</span>
-        <div><div class="n">Tax &amp; licensing boutique · Chicago</div><div class="s"><span class="stars">★★★★☆</span> 4.6 · 5 closed cross-border deals</div></div>
-        <div class="pr"><b>$14k</b>3 weeks</div>
-        <span class="fit"><span class="chip k pop" style="--d:3.6s">Fit 81</span></span></div>
-      <div class="card bid sl" style="--d:2.8s">
-        <span class="agent provider sm">P</span>
-        <div><div class="n">US–India structuring adviser · NY</div><div class="s"><span class="stars">★★★★☆</span> 4.5 · invited directly</div></div>
-        <div class="pr"><b>$21k</b>4 weeks</div>
-        <span class="fit"><span class="chip k pop" style="--d:3.7s">Fit 76</span></span></div>
-    </div>
-
-    <div class="card contract in" style="--d:5.1s"><span class="tick">✓</span>
-      <span><b>Engagement letter</b> · milestones · licensed escrow</span><span class="chip k" style="margin-left:auto">You decided</span></div>
-
-    <div class="card room in" style="--d:5.6s">
-      <div class="h"><span>📁 Deal room / Tax &amp; structuring</span><span class="cnt"><span class="fi" style="--d:5.6s;animation:fadeIn .2s 5.6s both,fadeOut .2s 7s forwards">2 files</span><span class="fi" style="--d:7s">3 files</span></span></div>
-      <div class="files">
-        <div class="file"><span class="ic"></span>Buyer thesis &amp; target wiki</div>
-        <div class="file"><span class="ic"></span>Normalized financials (US GAAP)</div>
-        <div class="file in" style="--d:7s"><span class="ic" style="background:var(--violet-50);border-color:#DCCBFF"></span><b>Structuring memo · v1</b><span class="chip v" style="margin-left:auto">New</span></div>
-      </div>
-    </div>
-    <div class="card fly"><span class="ic" style="width:12px;height:15px;border-radius:2px;background:var(--violet-50);border:1px solid #DCCBFF;display:block"></span><b>Structuring memo</b></div>
-
-    <div class="card review in" style="--d:7.4s"><span class="stars" style="color:var(--saffron);font-size:13px;letter-spacing:1px">★★★★★</span>
-      <span><b>Review posted</b> · on time</span><span class="chip g" style="margin-left:auto">+1 closed-deal credit</span></div>
+  <div class="card req in" style="--d:.3s">
+    <span class="chip lg">Requirement posted</span>
+    <div class="t22">US tax structuring + state licensing</div>
+    <div class="t16 muted" style="margin-top:6px">Buyer in India acquiring an Ohio manufacturer</div>
   </div>
+
+  <div class="card room in" style="--d:.5s">
+    <div class="hd"><span class="t22">Deal room</span></div>
+    <div class="file"><span class="ico"></span><div style="flex:1"><div class="bar-skel" style="width:70%"></div></div></div>
+    <div class="file new"><span class="ico"></span><span class="t18 b" style="flex:1">Structuring memo</span><span class="chip v">New</span></div>
+  </div>
+
+  <div class="props">
+    <div class="lab in" style="--d:1s"><span class="t22">Proposals</span><span class="t16 muted">scope · price · timeline</span></div>
+    <div class="card bid sl" style="--d:1.2s"><span class="pick"></span><div class="agent provider sm">P</div>
+      <div style="flex:1"><div class="t18 b" style="padding-right:78px">Cross-border tax specialist</div><div class="skel"><div class="bar-skel" style="width:85%"></div><div class="bar-skel" style="width:55%"></div></div></div>
+      <span class="chip g lg pop hired" style="--d:3.7s">Hired</span></div>
+    <div class="card bid sl" style="--d:1.5s"><div class="agent provider sm">P</div>
+      <div style="flex:1"><div class="t18 b">US corporate counsel</div><div class="skel"><div class="bar-skel" style="width:75%"></div><div class="bar-skel" style="width:60%"></div></div></div></div>
+    <div class="card bid sl" style="--d:1.8s"><div class="agent provider sm">P</div>
+      <div style="flex:1"><div class="t18 b">Accounting firm</div><div class="skel"><div class="bar-skel" style="width:80%"></div><div class="bar-skel" style="width:50%"></div></div></div></div>
+  </div>
+
+  <div class="card verdict in" style="--d:2.8s"><div class="agent ai sm">AI</div><span class="t18 b">AI agent compared · you decide</span></div>
+
+  <div class="fly"><span class="chip v lg">Structuring memo</span></div>
 </div></body></html>

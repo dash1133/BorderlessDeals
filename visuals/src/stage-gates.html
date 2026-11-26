@@ -1,103 +1,55 @@
 <!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
 <style>
-.win.main{left:28px;top:80px;width:744px;height:396px;animation:fadeUp .5s .3s both}
-.pipe{position:absolute;left:0;top:50px;width:744px;height:120px}
-.rail{position:absolute;left:60px;top:28px;width:623px;height:4px;border-radius:2px;background:#E3E9F5}
-.fill{position:absolute;left:60px;top:28px;height:4px;border-radius:2px;background:var(--green);width:0;
-  animation:fillw 10s linear both}
-@keyframes fillw{0%{width:0}40%{width:0}75%{width:623px}100%{width:623px}}
-.gate{position:absolute;top:8px;width:44px;height:44px;margin-left:-22px;border-radius:12px;background:#fff;border:2px solid var(--line);
-  display:grid;place-items:center;font-size:16px;animation:pop .4s var(--d) both}
-.gate .ic{font-weight:800;color:var(--ink-3);font-size:13px}
-.gate .ok{position:absolute;inset:-2px;border-radius:12px;background:var(--green);border:2px solid var(--green);display:grid;place-items:center;color:#fff;font-weight:800;font-size:18px;
-  animation:pop .35s var(--a) both}
-.gate .bad{position:absolute;inset:-2px;border-radius:12px;background:var(--red);display:grid;place-items:center;color:#fff;font-weight:800;font-size:16px;
-  animation:flagio 10s linear both}
-@keyframes flagio{0%,19.9%{opacity:0;transform:scale(.6)}21%{opacity:1;transform:scale(1.1)}22%{transform:scale(1)}37%{opacity:1}38.5%,100%{opacity:0}}
-.gate .chk{position:absolute;inset:-6px;border-radius:15px;border:2px solid var(--blue);animation:chk 10s linear both}
-@keyframes chk{0%,15%{opacity:0}16%,20%{opacity:1}21%,100%{opacity:0}}
-.lab{position:absolute;top:60px;width:88px;margin-left:-44px;text-align:center;animation:fadeIn .4s var(--d) both}
-.lab b{display:block;font-size:11.5px}
-.lab span{display:block;font-size:9.5px;color:var(--ink-3);margin-top:1px}
-.token{position:absolute;top:-13px;width:22px;height:22px;margin-left:-11px;animation:tok 10s linear both}
-@keyframes tok{0%,12%{left:60px;opacity:0}14%{opacity:1;left:60px}40%{left:60px}42%{left:149px}47.5%{left:238px}53%{left:327px}58.5%{left:416px}64%{left:505px}69.5%{left:594px}75%,100%{left:683px;opacity:1}}
-.token .agent{width:22px;height:22px;font-size:8px}
-.burst i{position:absolute;left:683px;top:30px;width:7px;height:7px;border-radius:2px;background:var(--c);
-  animation:conf .9s cubic-bezier(.2,.7,.2,1) 7.55s both}
-@keyframes conf{0%{opacity:0;transform:translate(0,0) scale(.4)}15%{opacity:1}100%{opacity:0;transform:translate(var(--x),var(--y)) rotate(200deg) scale(1)}}
-.panel{position:absolute;top:166px;height:216px;padding:12px 14px}
-.panel h4{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);display:flex;align-items:center;gap:8px;margin-bottom:8px}
-.left{left:16px;width:348px}
-.right{left:376px;width:352px}
-.row{display:flex;align-items:center;gap:8px;padding:6px 0;border-top:1px solid #F0F3FA;font-size:11px}
-.row:first-of-type{border-top:0}
+.gates{position:absolute;left:0;top:64px;width:800px;height:150px}
+.track{position:absolute;left:70px;width:660px;top:29px;height:6px;background:#E3E9F5;border-radius:3px}
+.fill{position:absolute;left:70px;width:660px;top:29px;height:6px;background:var(--green);border-radius:3px;transform-origin:left;animation:grow 2.3s linear 3.4s both}
+.g{position:absolute;top:0;width:98px;margin-left:-49px;text-align:center}
+.g .dot{width:64px;height:64px;margin:0 auto;border-radius:50%;background:#fff;border:3px solid #D5DDEE;position:relative;box-shadow:0 2px 6px rgba(14,26,51,.06)}
+.g .dot .n{position:absolute;inset:0;display:grid;place-items:center;font-weight:800;font-size:18px;color:var(--ink-3)}
+.g .lbl{margin-top:10px;font-size:16px;font-weight:700;line-height:1.2}
+.ok,.bad{position:absolute;inset:-3px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;font-size:28px}
+.ok{background:var(--green);animation:pop .35s var(--d) both}
+.bad{background:var(--red);animation:flagShow 2.2s 1s both}
+@keyframes flagShow{0%{opacity:0;transform:scale(.6)}10%{opacity:1;transform:scale(1)}88%{opacity:1}100%{opacity:0}}
+.tok{position:absolute;left:0;top:0;offset-path:path('M70 -26 L730 -26');offset-rotate:0deg;animation:move 2.3s cubic-bezier(.4,0,.2,1) 3.4s both}
+.tok .agent{animation:pop .4s .3s both}
+@keyframes move{from{offset-distance:0%}to{offset-distance:100%}}
+.panel{position:absolute;left:32px;right:32px;top:250px;bottom:28px;padding:14px 24px}
+.hd{display:flex;align-items:center;gap:10px;color:var(--ink-3);font-weight:600;padding-bottom:6px}
+.row{display:flex;align-items:center;gap:14px;padding:11px 0;border-top:1px solid var(--line)}
 .row .txt{flex:1}
-.row .agent.sm{width:20px;height:20px;font-size:8px}
-.log .row{padding:3px 0;font-size:10.5px}
-.log .row .tick{width:14px;height:14px;font-size:9px}
-.swap{position:relative;display:inline-block}
-.swap .a{animation:fadeOut .2s 3.6s both}
-.swap .bb{position:absolute;left:0;top:0;animation:fadeIn .2s 3.6s both}
-.foot{position:absolute;left:14px;right:14px;bottom:10px;display:flex;justify-content:space-between;align-items:center}
-.src{position:absolute;left:28px;bottom:6px;font-size:9.5px;color:var(--ink-3)}
+.ic{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;font-size:17px;flex:none;position:relative}
+.st{position:relative;width:110px;height:32px;flex:none}
+.st .chip{position:absolute;right:0;top:0}
+.st .f{animation:flagShow 2.2s 1s both}
 </style></head>
-<body data-ms="10000" style="--T:10s"><div class="stage">
-  <div class="cap in" style="--d:.15s"><div class="eyebrow">Stage gates · an agent checks every step</div>
-    <h2>Catch deal-killers at the <em>mandate</em>, not after exclusivity.</h2></div>
+<body data-ms="9500" style="--T:9.5s"><div class="stage">
+  <div class="gates">
+    <div class="track"></div><div class="fill"></div>
+    <div class="g" style="left:70px"><div class="dot"><span class="n">1</span><span class="bad">!</span><span class="ok" style="--d:3.2s">✓</span></div><div class="lbl">Mandate</div></div>
+    <div class="g" style="left:180px"><div class="dot"><span class="n">2</span><span class="ok" style="--d:3.8s">✓</span></div><div class="lbl">Collateral</div></div>
+    <div class="g" style="left:290px"><div class="dot"><span class="n">3</span><span class="ok" style="--d:4.15s">✓</span></div><div class="lbl">Anonymous teaser</div></div>
+    <div class="g" style="left:400px"><div class="dot"><span class="n">4</span><span class="ok" style="--d:4.55s">✓</span></div><div class="lbl">NDA</div></div>
+    <div class="g" style="left:510px"><div class="dot"><span class="n">5</span><span class="ok" style="--d:4.9s">✓</span></div><div class="lbl">LOI</div></div>
+    <div class="g" style="left:620px"><div class="dot"><span class="n">6</span><span class="ok" style="--d:5.3s">✓</span></div><div class="lbl">Due diligence</div></div>
+    <div class="g" style="left:730px"><div class="dot"><span class="n">7</span><span class="ok" style="--d:5.7s">✓</span></div><div class="lbl">SPA &amp; closing</div></div>
+    <div class="tok"><div class="agent ai" style="margin:-19px 0 0 -19px">AI</div></div>
+  </div>
 
-  <div class="win main">
-    <div class="bar"><div class="dots"><i></i><i></i><i></i></div>
-      <div class="logo"><span class="mk"></span>BORDERLESS <b>DEALS</b></div>
-      <div class="title">· Deal room · Project Falcon</div>
-      <div class="tabs"><span class="tab">Listing</span><span class="tab on">Gates</span><span class="tab">Services</span></div></div>
-
-    <div class="pipe">
-      <div class="rail"></div><div class="fill"></div>
-      <div class="gate" style="left:60px;--d:.7s"><span class="ic">1</span><span class="chk"></span><span class="bad">⚑</span><span class="ok" style="--a:3.8s">✓</span></div>
-      <div class="gate" style="left:149px;--d:.78s"><span class="ic">2</span><span class="ok" style="--a:4.2s">✓</span></div>
-      <div class="gate" style="left:238px;--d:.86s"><span class="ic">3</span><span class="ok" style="--a:4.75s">✓</span></div>
-      <div class="gate" style="left:327px;--d:.94s"><span class="ic">4</span><span class="ok" style="--a:5.3s">✓</span></div>
-      <div class="gate" style="left:416px;--d:1.02s"><span class="ic">5</span><span class="ok" style="--a:5.85s">✓</span></div>
-      <div class="gate" style="left:505px;--d:1.1s"><span class="ic">6</span><span class="ok" style="--a:6.4s">✓</span></div>
-      <div class="gate" style="left:594px;--d:1.18s"><span class="ic">7</span><span class="ok" style="--a:6.95s">✓</span></div>
-      <div class="gate" style="left:683px;--d:1.26s"><span class="ic">★</span><span class="ok" style="--a:7.5s">✓</span></div>
-      <div class="lab" style="left:60px;--d:.8s"><b>Mandate</b><span>Seller suitability</span></div>
-      <div class="lab" style="left:149px;--d:.88s"><b>Collateral</b><span>Claims vs docs</span></div>
-      <div class="lab" style="left:238px;--d:.96s"><b>Teaser</b><span>Not identifiable</span></div>
-      <div class="lab" style="left:327px;--d:1.04s"><b>NDA</b><span>Proof of funds</span></div>
-      <div class="lab" style="left:416px;--d:1.12s"><b>LOI</b><span>Terms vs data</span></div>
-      <div class="lab" style="left:505px;--d:1.2s"><b>Diligence</b><span>Confirmatory</span></div>
-      <div class="lab" style="left:594px;--d:1.28s"><b>SPA</b><span>Reps vs facts</span></div>
-      <div class="lab" style="left:683px;--d:1.36s"><b>Close</b><span>Filings complete</span></div>
-      <div class="token"><div class="agent broker">A</div></div>
-      <div class="burst">
-        <i style="--c:var(--green);--x:-40px;--y:-34px"></i><i style="--c:var(--saffron);--x:36px;--y:-30px"></i>
-        <i style="--c:var(--blue);--x:-48px;--y:6px"></i><i style="--c:var(--teal);--x:44px;--y:10px"></i>
-        <i style="--c:var(--violet);--x:-22px;--y:-46px"></i><i style="--c:var(--saffron);--x:20px;--y:-48px"></i>
-        <i style="--c:var(--green);--x:-30px;--y:30px"></i><i style="--c:var(--blue);--x:30px;--y:32px"></i>
-      </div>
+  <div class="card panel in" style="--d:.4s">
+    <div class="hd"><div class="agent ai sm">AI</div><span class="t16">AI agent · mandate check</span></div>
+    <div class="row in" style="--d:1s">
+      <span class="ic" style="background:var(--red)">!<span class="ok" style="--d:3.2s;font-size:17px">✓</span></span>
+      <span class="txt t22">Contradiction: stated EBITDA ≠ tax return</span>
+      <span class="st"><span class="chip r lg f">Flagged</span><span class="chip g lg pop" style="--d:3.2s">Fixed</span></span>
     </div>
-
-    <div class="card panel left in" style="--d:1.6s">
-      <h4><span class="agent broker sm" style="width:18px;height:18px;font-size:7px">A</span>Mandate gate · agent check</h4>
-      <div class="row in" style="--d:2s"><span class="swap"><span class="flag a">!</span><span class="tick bb">✓</span></span><span class="txt"><b>Contradiction:</b> EBITDA in CIM ≠ tax return</span><span class="swap"><span class="chip r a">Flagged</span><span class="chip g bb">Fixed</span></span></div>
-      <div class="row in" style="--d:2.4s"><span class="tick">✓</span><span class="txt">Corridor pre-check · FDI screening, sector licence</span><span class="chip g">Clear</span></div>
-      <div class="row in" style="--d:2.85s"><span class="agent provider sm">P</span><span class="txt">Accounting adviser called in · QoE</span><span class="chip v">Engaged</span></div>
-      <div class="row in" style="--d:3.5s"><span class="tick">✓</span><span class="txt"><b>Recommend:</b> take on with remediation</span><span class="chip g">Ready</span></div>
-      <div class="foot"><span class="chip k">Agents recommend · people decide</span><span class="chip t pop" style="--d:3.95s">✓ Broker approved</span></div>
+    <div class="row in" style="--d:2.1s">
+      <span class="agent provider sm" style="flex:none;width:30px;height:30px">S</span>
+      <span class="txt t22">Accounting specialist called in</span>
     </div>
-
-    <div class="card panel right log in" style="--d:1.7s">
-      <h4>Gate log</h4>
-      <div class="row in" style="--d:3.8s"><span class="tick">✓</span><span class="txt"><b>Mandate</b> · remediated, taken on</span></div>
-      <div class="row in" style="--d:4.2s"><span class="tick">✓</span><span class="txt"><b>Collateral</b> · every claim checked vs documents</span></div>
-      <div class="row in" style="--d:4.75s"><span class="tick">✓</span><span class="txt"><b>Teaser</b> · accurate, company not identifiable</span></div>
-      <div class="row in" style="--d:5.3s"><span class="tick">✓</span><span class="txt"><b>NDA</b> · proof of funds, sanctions screening</span></div>
-      <div class="row in" style="--d:5.85s"><span class="tick">✓</span><span class="txt"><b>LOI</b> · terms vs seller data, regulatory path</span></div>
-      <div class="row in" style="--d:6.4s"><span class="tick">✓</span><span class="txt"><b>Diligence</b> · tracked vs issues found earlier</span></div>
-      <div class="row in" style="--d:6.95s"><span class="tick">✓</span><span class="txt"><b>SPA</b> · reps vs disclosed facts</span></div>
-      <div class="row in" style="--d:7.5s"><span class="tick">✓</span><span class="txt" style="color:var(--green)"><b>Closed</b> · conditions &amp; filings complete</span></div>
+    <div class="row in" style="--d:3.2s">
+      <span class="ic" style="background:var(--green)">✓</span>
+      <span class="txt t22">Broker approves · deal proceeds to closing</span>
     </div>
   </div>
-  <div class="src fi" style="--d:1.8s">Axial, broken LOIs (2024): diligence &amp; QoE findings caused ~37% of failures, issues knowable earlier.</div>
 </div></body></html>

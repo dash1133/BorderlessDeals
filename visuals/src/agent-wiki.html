@@ -1,66 +1,65 @@
 <!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
 <style>
-.wiki{left:24px;top:78px;width:494px;height:400px}
-.seg{margin-left:auto;display:flex;border:1px solid var(--line);border-radius:7px;overflow:hidden;font-size:10px;font-weight:700}
-.seg span{padding:4px 8px;position:relative;color:var(--ink-3)}
-.seg span i{position:absolute;inset:0;background:var(--blue);color:#fff;display:grid;place-items:center;font-style:normal;opacity:0}
-.L{display:grid}.L>*{grid-area:1/1}
-.ja{font-family:"WenQuanYi Zen Hei",Inter,sans-serif}
-.en{animation:lEN var(--T) linear both}.hi{animation:lHI var(--T) linear both}.ja{animation:lJA var(--T) linear both}
-@keyframes lEN{0%,51%{opacity:1}52%,74%{opacity:0}75%,100%{opacity:1}}
-@keyframes lHI{0%,51%{opacity:0}52%,62.5%{opacity:1}63.5%,100%{opacity:0}}
-@keyframes lJA{0%,62.5%{opacity:0}63.5%,74%{opacity:1}75%,100%{opacity:0}}
-.body{padding:14px 18px;display:grid;gap:12px}
-.hd{display:flex;align-items:center;gap:10px}
-.hd .t{font-weight:800;font-size:15px}
-.sec h4{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--blue);margin-bottom:5px}
-.ln{font-size:11.5px;color:var(--ink-2);white-space:nowrap;overflow:hidden}
-.ty{display:inline-block;overflow:hidden;white-space:nowrap;vertical-align:bottom;animation:typing var(--dur,1s) steps(40,end) var(--d) both}
-table{width:100%;border-collapse:collapse;font-size:11px}
-td{padding:5px 0;border-bottom:1px solid var(--line)} td:last-child{text-align:right;font-weight:700}
-.rdy{display:flex;align-items:center;gap:10px}
-.rdy .tr{flex:1;height:8px;border-radius:4px;background:var(--blue-50);overflow:hidden}
-.rdy .tr b{display:block;width:82%;height:100%;background:linear-gradient(90deg,var(--blue),var(--teal));transform-origin:left;animation:grow 1.2s ease-out 3.2s both}
-.status{position:absolute;right:14px;top:44px}
-.st1{animation:fadeIn .2s .3s both,fadeOut .2s 4s forwards}.st2{position:absolute;right:0;top:0;animation:fadeIn .3s 4.1s both}
-.spin{width:10px;height:10px;border:2px solid var(--blue-100);border-top-color:var(--blue);border-radius:50%;animation:spin .8s linear infinite}
-.chat{left:534px;top:78px;width:242px;height:400px}
-.msgs{padding:12px;display:grid;gap:10px}
-.m{display:flex;gap:8px;align-items:flex-start}
-.bub{padding:8px 10px;border-radius:10px;font-size:11px;line-height:1.4}
-.m.q .bub{background:var(--blue-50);color:var(--ink)}
-.m.a .bub{background:#fff;border:1px solid var(--line)}
-.who{font-size:9.5px;color:var(--ink-3);margin-bottom:2px;font-weight:600}
-.lock{display:inline-block;width:9px;height:7px;background:currentColor;border-radius:1.5px;position:relative;margin-right:2px;top:1px}
-.lock::before{content:"";position:absolute;left:1.5px;top:-5px;width:4px;height:5px;border:1.5px solid currentColor;border-bottom:0;border-radius:3px 3px 0 0}
+.page{left:24px;top:24px;width:430px;height:452px;animation:fadeUp .5s .1s both}
+.page .bar{height:48px;padding:0 14px}
+.page .title{font-size:14px;color:var(--ink-2)}
+.lang{margin-left:auto;display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;font-size:14px;font-weight:700}
+.lang span{padding:5px 10px;position:relative}
+.lang .en{animation:onoff 4.2s .2s both}
+.lang .hi{font-family:"FreeSans",Inter,sans-serif;animation:offon .3s 4.2s both}
+@keyframes onoff{0%,99%{background:var(--blue);color:#fff}100%{background:#fff;color:var(--ink-3)}}
+@keyframes offon{from{background:#fff;color:var(--ink-3)}to{background:var(--blue);color:#fff}}
+.body{padding:18px 24px;display:grid;gap:12px}
+.h{position:relative;height:40px}
+.h > div{position:absolute;left:0;top:0;white-space:nowrap}
+.h .en{animation:fadeIn .4s .5s both,fadeOut .25s 4.1s forwards}
+.h .hi,.sw2 .hi{font-family:"FreeSans",Inter,sans-serif;animation:fadeIn .3s 4.3s both}
+.h .hi{font-size:20px;color:var(--ink-3)}
+.h{height:26px;margin-top:-8px}
+.sw2{position:relative;height:18px}.sw2 > span{position:absolute;left:0;top:0;white-space:nowrap}
+.sw2 .en{animation:fadeIn .3s .5s both,fadeOut .25s 4.1s forwards}
+.sw2 .hi{font-size:15px}
+.lbl{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+.fin{display:grid;gap:10px}
+.fin div{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.blur{width:120px;height:16px;border-radius:5px;background:linear-gradient(90deg,#C9D3EA,#E3E9F5);filter:blur(1.5px)}
+.drafted{display:flex;align-items:center;gap:10px}
+.qa{position:absolute;left:472px;top:24px;width:304px;height:452px;padding:20px;display:flex;flex-direction:column;gap:14px;animation:fadeUp .5s .3s both}
+.who{display:flex;align-items:center;gap:10px}
+.bub{padding:12px 14px;border-radius:12px;font-size:18px;line-height:1.3}
+.bub.q{background:var(--blue-50);border:1px solid var(--blue-100)}
+.bub.a{background:#fff;border:1px solid var(--line)}
+.esc{display:flex;flex-direction:column;gap:8px}
+.sw3,.sw4{position:relative;display:block;height:24px}.sw3 > span,.sw4 > span{position:absolute;left:0;top:0;white-space:nowrap}
+.sw4{width:190px;height:22px}
+.sw3 .en,.sw4 .en{animation:fadeIn .3s .5s both,fadeOut .25s 4.1s forwards}
+.sw3 .hi,.sw4 .hi{font-family:"FreeSans",Inter,sans-serif;animation:fadeIn .3s 4.3s both}
+.qa{gap:12px}.bub{font-size:17px;padding:10px 12px}
+.qa .chip.lg{white-space:normal;font-size:15px;line-height:1.3}
 </style></head>
 <body data-ms="10000" style="--T:10s"><div class="stage">
-  <div class="cap in" style="--d:.15s"><div class="eyebrow">Agents, not static pages</div>
-    <h2>A <em>living</em> company wiki, written by an agent.</h2></div>
-
-  <div class="win wiki in" style="--d:.2s">
-    <div class="bar"><div class="dots"><i></i><i></i><i></i></div><span class="title">Company wiki · Project Falcon</span>
-      <div class="seg"><span>EN<i style="animation:lEN var(--T) linear both">EN</i></span><span>हिन्दी<i style="animation:lHI var(--T) linear both">हिन्दी</i></span><span class="ja" style="animation:none">日本語<i class="ja" style="animation:lJA var(--T) linear both">日本語</i></span></div></div>
-    <div class="status"><span class="chip st1"><span class="spin"></span>Agent writing…</span><span class="chip g st2">✓ Updated just now</span></div>
-    <div class="body">
-      <div class="hd"><div class="agent seller">S</div><div><div class="t">“Project Falcon”</div><div class="muted" style="font-size:10.5px">Precision machining · Ohio · via sell-side broker</div></div></div>
-      <div class="sec"><h4 class="L"><span class="en">Business</span><span class="hi">व्यवसाय</span><span class="ja">事業概要</span></h4>
-        <div class="ln L"><span class="en"><span class="ty" style="--d:.6s;--dur:.9s">Contract machining for aerospace and medical OEMs.</span></span><span class="hi">एयरोस्पेस और मेडिकल OEM के लिए अनुबंध मशीनिंग।</span><span class="ja">航空宇宙・医療OEM向けの受託精密加工。</span></div>
-        <div class="ln L"><span class="en"><span class="ty" style="--d:1.4s;--dur:.8s">Founder-owned, seeking a successor buyer.</span></span><span class="hi">संस्थापक-स्वामित्व, उत्तराधिकारी खरीदार की तलाश।</span><span class="ja">創業者所有、後継となる買い手を募集中。</span></div></div>
-      <div class="sec"><h4 class="L"><span class="en">Normalized financials</span><span class="hi">सामान्यीकृत वित्तीय</span><span class="ja">正規化財務</span></h4>
-        <table><tr class="fi" style="--d:2.2s"><td>Revenue (FY)</td><td>$28.0M</td></tr><tr class="fi" style="--d:2.45s"><td>Adj. EBITDA · US GAAP, normalized</td><td>$4.1M</td></tr><tr class="fi" style="--d:2.7s"><td>Source</td><td><span class="chip k" style="font-size:9.5px">Reviewed financials · cited</span></td></tr></table></div>
-      <div class="sec"><h4 class="L"><span class="en">Deal readiness</span><span class="hi">सौदा तैयारी</span><span class="ja">取引準備度</span></h4>
-        <div class="rdy fi" style="--d:3s"><div class="tr"><b></b></div><b style="font-size:13px">82%</b></div></div>
-    </div>
+<div class="win page">
+  <div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="title">Company page</div>
+    <div class="lang"><span class="en">EN</span><span class="hi">हिन्दी</span></div></div>
+  <div class="body">
+    <div class="t28 fi" style="font-size:32px;--d:.4s">Project Falcon</div>
+    <div class="h sw"><div class="en t18 muted">Company page</div><div class="hi">कंपनी पेज</div></div>
+    <div class="in" style="--d:.7s"><span class="illus">Illustrative</span></div>
+    <div class="in" style="--d:1s"><div class="lbl sw2"><span class="en">Business</span><span class="hi">व्यवसाय</span></div><div class="sw3 t18" style="margin-top:4px"><span class="en">US industrial company · founder-owned</span><span class="hi">अमेरिकी औद्योगिक कंपनी · संस्थापक-स्वामित्व वाली</span></div></div>
+    <div class="in" style="--d:1.4s"><div class="lbl sw2"><span class="en">Financials</span><span class="hi">वित्तीय विवरण</span></div>
+      <div class="fin t16" style="margin-top:8px"><div><span class="sw4"><span class="en">Revenue</span><span class="hi">राजस्व</span></span><span class="blur"></span></div><div><span class="sw4"><span class="en">Adjusted EBITDA</span><span class="hi">समायोजित EBITDA</span></span><span class="blur"></span></div></div>
+      <div style="margin-top:10px"><span class="chip lg k">Normalized · cited</span></div></div>
+    <div class="drafted in" style="--d:1.9s"><div class="agent ai sm">AI</div><span class="t16 muted">Drafted by your AI agent</span></div>
   </div>
-
-  <div class="win chat in" style="--d:.35s">
-    <div class="bar"><span class="title">Agent-to-agent Q&amp;A</span></div>
-    <div class="msgs">
-      <div class="m q sl" style="--d:5.4s"><div class="agent buyer sm">B</div><div><div class="who">Buyer's agent · Mumbai</div><div class="bub">What is customer concentration?</div></div></div>
-      <div class="m a sr" style="--d:6.4s"><div class="agent seller sm">S</div><div><div class="who">Seller's agent</div><div class="bub">Top 3 customers ≈ 41% of revenue (FY).<div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:4px"><span class="chip k" style="font-size:9.5px">Source: AR ledger, p.3</span><span class="chip g" style="font-size:9.5px"><span class="lock"></span>Within disclosure rules</span></div></div></div></div>
-      <div class="m q sl" style="--d:7.6s"><div class="agent buyer sm">B</div><div><div class="who">Buyer's agent</div><div class="bub">Named customers?</div></div></div>
-      <div class="m a sr" style="--d:8.3s"><div class="agent seller sm">S</div><div><div class="bub">Released only under NDA, with seller approval.<div style="margin-top:6px"><span class="chip s" style="font-size:9.5px">Escalated to broker</span></div></div></div></div>
-    </div>
+</div>
+<div class="card qa">
+  <div class="who in" style="--d:1.6s"><div class="agent ai">AI</div><div class="t16"><b>Buyer's AI agent</b><br><span class="muted">India</span></div></div>
+  <div class="bub q in" style="--d:2.2s">What is customer concentration?</div>
+  <div class="bub a in" style="--d:3.0s">Answered from the approved customer summary.
+    <div style="margin-top:8px"><span class="chip lg g">✓ From approved information</span></div></div>
+  <div class="esc">
+    <div class="bub q in" style="--d:5.2s">Would you accept a lower price?</div>
+    <div class="in" style="--d:6.0s"><span class="chip lg s">→ Price or terms go to your broker</span></div>
   </div>
+</div>
 </div></body></html>

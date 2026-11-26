@@ -1,0 +1,50 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+.mand{position:absolute;left:32px;top:110px;width:220px;padding:20px}
+.doc{width:56px;height:70px;border-radius:6px;background:var(--saffron-50);border:2px solid var(--saffron);position:relative;margin-bottom:14px}
+.doc i{position:absolute;left:10px;right:10px;height:5px;border-radius:3px;background:#F6C979;display:block}
+.hub{position:absolute;left:300px;top:182px;width:110px;text-align:center}
+.hub .ring{position:absolute;left:50%;top:-12px;width:78px;height:78px;margin-left:-39px;border-radius:50%;border:3px dashed var(--blue-100);animation:spin 3s linear 1.6s infinite}
+.hub .agent{margin:0 auto}
+svg.flow{position:absolute;left:0;top:0;width:800px;height:500px}
+.ln{fill:none;stroke:var(--blue-100);stroke-width:3;stroke-dasharray:6 7}
+.ln.in{stroke:var(--saffron)}
+.flowin{stroke-dasharray:200;stroke-dashoffset:200;animation:draw .7s ease .9s forwards}
+.flowout1{stroke-dasharray:240;stroke-dashoffset:240;animation:draw .6s ease 2.1s forwards}
+.flowout2{stroke-dasharray:240;stroke-dashoffset:240;animation:draw .6s ease 2.5s forwards}
+.out{position:absolute;left:470px;width:298px;padding:16px 20px}
+.teaser{top:32px}
+.buyers{top:196px}
+.brow{display:flex;align-items:center;gap:12px;padding:9px 0;border-top:1px solid var(--line)}
+.foot{position:absolute;left:32px;right:32px;bottom:28px;text-align:center}
+</style></head>
+<body data-ms="9000" style="--T:9s"><div class="stage">
+  <svg class="flow" viewBox="0 0 800 500">
+    <path class="ln in flowin" d="M252 220 L330 220"/>
+    <path class="ln flowout1" d="M410 205 C440 205 440 100 470 100"/>
+    <path class="ln flowout2" d="M410 235 C440 235 440 300 470 300"/>
+  </svg>
+
+  <div class="card mand in" style="--d:.3s">
+    <div class="doc"><i style="top:14px"></i><i style="top:26px;right:20px"></i><i style="top:38px"></i><i style="top:50px;right:24px"></i></div>
+    <div class="t22">One mandate</div>
+    <div class="t16 muted" style="margin-top:4px">Ohio · via sell-side broker</div>
+  </div>
+
+  <div class="hub"><div class="ring fi" style="--d:1.5s"></div><div class="agent ai lg pop" style="--d:1.4s">AI</div>
+    <div class="t16 b in" style="--d:1.6s;margin-top:14px">AI agent</div></div>
+
+  <div class="card out teaser sl" style="--d:2.3s">
+    <div style="display:flex;justify-content:space-between;align-items:center"><span class="t22">Anonymous teaser</span><span class="chip s">Draft</span></div>
+    <div style="display:grid;gap:7px;margin-top:12px"><div class="bar-skel" style="width:90%"></div><div class="bar-skel" style="width:72%"></div><div class="bar-skel" style="width:60%"></div></div>
+  </div>
+
+  <div class="card out buyers sl" style="--d:2.7s">
+    <div class="t22" style="margin-bottom:8px">Likely buyers · India</div>
+    <div class="brow in" style="--d:3.1s"><div class="agent buyer sm">B</div><span class="t18">Strategic buyer</span></div>
+    <div class="brow in" style="--d:3.35s"><div class="agent pe sm">PE</div><span class="t18">PE fund</span></div>
+    <div class="brow in" style="--d:3.6s"><div class="agent broker sm">BB</div><span class="t18">Buy-side broker</span></div>
+  </div>
+
+  <div class="foot in" style="--d:4.1s"><span class="chip g lg">Free for founding brokers · US–India corridor</span></div>
+</div></body></html>
